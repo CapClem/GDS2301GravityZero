@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (useJetpack == true)
         {
-            rb.AddForce(transform.up * propelSpeed);
+            rb.AddForce(transform.up * propelSpeed * transform.localScale.y);
             print("You are using the jetpack");
         }
 

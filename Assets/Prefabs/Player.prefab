@@ -691,6 +691,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 3639213280194290054}
   m_CeilingCheck: {fileID: 3639213278413681817}
   m_CrouchDisableCollider: {fileID: 3639213279711610133}
+  m_UpRight: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -793,9 +794,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0, z: 0}
   ridBody: {fileID: 3639213279711610135}
-  lowGravity: 3
+  lowGravity: 0.5
   normGravity: 1
-  HighGravity: 0.5
+  HighGravity: 3
+  playerController: {fileID: 0}
 --- !u!95 &1155160209
 Animator:
   serializedVersion: 3

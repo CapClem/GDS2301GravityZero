@@ -9,6 +9,9 @@ TagManager:
   - NormGravity
   - HighGravity
   - LevelEndpoint
+  - LowGravityFlip
+  - NormGravityFlip
+  - HighGravityFlip
   layers:
   - Default
   - TransparentFX

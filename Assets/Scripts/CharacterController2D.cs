@@ -19,6 +19,7 @@ public class CharacterController2D : MonoBehaviour
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+    public bool m_UpRight = true; // For determining whether the player is up right or upside down
     private Vector3 m_Velocity = Vector3.zero;
 
     [Header("Events")]
@@ -60,6 +61,7 @@ public class CharacterController2D : MonoBehaviour
                     OnLandEvent.Invoke();
             }
         }
+        
     }
 
 
@@ -131,7 +133,7 @@ public class CharacterController2D : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_Grounded = false;
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * transform.localScale.y));
         }
     }
 
@@ -142,8 +144,35 @@ public class CharacterController2D : MonoBehaviour
         m_FacingRight = !m_FacingRight;
 
         // Multiply the player's x local scale by -1.
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        Vector3 xScale = transform.localScale;
+        xScale.x *= -1;
+        transform.localScale = xScale;
+    }
+
+    public void GravityFlip() //Gravity Flip
+    {
+        if (m_UpRight != false) // Flip the player upside down
+        {
+            m_UpRight = false;
+            // Multiply the player's y local scale by -1.
+            Vector3 yScale = transform.localScale;
+            yScale.y = -1;
+            transform.localScale = yScale;
+            Debug.Log(m_UpRight);
+        }
+        else if (m_UpRight != true) // Put the player back to normal
+        {
+            m_UpRight = true;
+            NormalGravity();
+            Debug.Log(m_UpRight);
+        }
+
+    }
+    private void NormalGravity()
+    {
+        // Resets the y scale
+        Vector3 yScale = transform.localScale;
+        yScale.y = 1;
+        transform.localScale = yScale;
     }
 }
