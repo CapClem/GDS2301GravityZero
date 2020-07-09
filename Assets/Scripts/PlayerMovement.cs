@@ -21,9 +21,11 @@ public class PlayerMovement : MonoBehaviour
 
     Animator ani;
 
-    public float propelSpeed = 10f;
+    public float propelSpeed = 15f;
     private Rigidbody2D rb;
     private bool useJetpack = false;
+
+    float currentGravity;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
             ani.SetBool("Walking", false);
         }
 
+        print(rb.velocity);
+
         //jump & Jectpack
         if (Input.GetButtonDown("Jump"))
         {
@@ -59,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 useJetpack = true;
+                currentGravity = rb.gravityScale;
+                rb.gravityScale = 1f;
             }
         }
 
@@ -66,6 +72,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
         {
             useJetpack = false;
+            if (currentGravity != 0)
+            {
+                rb.gravityScale = currentGravity;
+            }
         }
 
         //crouch
