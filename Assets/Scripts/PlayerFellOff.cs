@@ -41,6 +41,7 @@ public class PlayerFellOff : MonoBehaviour
         if (x.gameObject.tag == "boundry")
         {
            this.transform.position = startPos;
+           startScale = transform.localScale;
            startScale.y = 1;
            transform.localScale = startScale;
            ridBody.gravityScale = startGravity;
