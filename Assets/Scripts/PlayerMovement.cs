@@ -27,11 +27,22 @@ public class PlayerMovement : MonoBehaviour
 
     float currentGravity;
 
+    //Jetpack Fuelbar
+    public int fuelRemaining;
+    public int maxFuel = 100;
+    public int fuelDrain = 1;
+
+    public FuelBar fuelBar;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         ani = this.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        fuelRemaining = maxFuel;
+        fuelBar.setTotalFuelLevel(maxFuel);
     }
 
     // Update is called once per frame
@@ -63,9 +74,12 @@ public class PlayerMovement : MonoBehaviour
                 useJetpack = true;
                 currentGravity = rb.gravityScale;
                 rb.gravityScale = 1f;
-                if (rb.velocity.y < 0)
+                
+                //Add initial fuel boost
+                if (rb.velocity.y < 0 && !(fuelRemaining <= 0))
                 {
                     rb.velocity = new Vector3(0, 1, 0);
+                    fuelRemaining -= fuelDrain * 2; 
                 }
                 
             }
@@ -103,13 +117,37 @@ public class PlayerMovement : MonoBehaviour
 
         if (useJetpack == true)
         {
-            rb.AddForce(transform.up * propelSpeed * transform.localScale.y);
-            print("You are using the jetpack");
+            
+            if ((fuelRemaining - fuelDrain) <= 0)
+            {
+                fuelRemaining = 0;
+                useJetpack = false;
+            }
+            else
+            {
+                rb.AddForce(transform.up * propelSpeed * transform.localScale.y);
+                fuelRemaining -= fuelDrain;
+            }
+            fuelBar.SetFuelLevel(fuelRemaining);
+            //print("You are using the jetpack");
+
         }
 
         if (IsGrounded())
         {
             useJetpack = false;
+
+            //regain fuel
+            if (fuelRemaining + fuelDrain <= maxFuel)
+            {
+                fuelRemaining += fuelDrain;
+                
+            }
+            else if (fuelRemaining != maxFuel)
+            {
+                fuelRemaining = maxFuel;
+            }
+            fuelBar.SetFuelLevel(fuelRemaining);
         }
     }
 
@@ -132,7 +170,9 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x, 0), Vector2.down * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
         Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, 0), Vector2.down * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
         Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, boxCollider2D.bounds.extents.y + extraHeightText), Vector2.right * 2 * (boxCollider2D.bounds.extents.x), rayColor);
-        Debug.Log(raycastHit.collider);
+        //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
     }
+
+
 }
