@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     Animator ani;
 
-    public float propelSpeed = 15f;
+    public float propelSpeed = 30f;
     private Rigidbody2D rb;
     private bool useJetpack = false;
 
@@ -48,8 +48,6 @@ public class PlayerMovement : MonoBehaviour
             ani.SetBool("Walking", false);
         }
 
-        print(rb.velocity);
-
         //jump & Jectpack
         if (Input.GetButtonDown("Jump"))
         {
@@ -65,6 +63,11 @@ public class PlayerMovement : MonoBehaviour
                 useJetpack = true;
                 currentGravity = rb.gravityScale;
                 rb.gravityScale = 1f;
+                if (rb.velocity.y < 0)
+                {
+                    rb.velocity = new Vector3(0, 1, 0);
+                }
+                
             }
         }
 
