@@ -76,12 +76,11 @@ public class PlayerMovement : MonoBehaviour
                 rb.gravityScale = 1f;
                 
                 //Add initial fuel boost
-                if (rb.velocity.y < 0 && !(fuelRemaining <= 0))
+                if (rb.velocity.y < 0 && !(fuelRemaining >= 100))
                 {
                     rb.velocity = new Vector3(0, 1, 0);
-                    fuelRemaining -= fuelDrain * 2; 
-                }
-                
+                    fuelRemaining += fuelDrain * 2; 
+                }                
             }
         }
 
@@ -118,15 +117,15 @@ public class PlayerMovement : MonoBehaviour
         if (useJetpack == true)
         {
             
-            if ((fuelRemaining - fuelDrain) <= 0)
+            if ((fuelRemaining + fuelDrain) >= 100)
             {
-                fuelRemaining = 0;
+                fuelRemaining = 100;
                 useJetpack = false;
             }
             else
             {
                 rb.AddForce(transform.up * propelSpeed * transform.localScale.y);
-                fuelRemaining -= fuelDrain;
+                fuelRemaining += fuelDrain;
             }
             fuelBar.SetFuelLevel(fuelRemaining);
             //print("You are using the jetpack");
@@ -138,14 +137,14 @@ public class PlayerMovement : MonoBehaviour
             useJetpack = false;
 
             //regain fuel
-            if (fuelRemaining + fuelDrain <= maxFuel)
+            if (!(fuelRemaining - fuelDrain < 0))
             {
-                fuelRemaining += fuelDrain;
+                fuelRemaining -= fuelDrain;
                 
             }
-            else if (fuelRemaining != maxFuel)
+            else if (fuelRemaining != 0)
             {
-                fuelRemaining = maxFuel;
+                fuelRemaining = 0;
             }
             fuelBar.SetFuelLevel(fuelRemaining);
         }

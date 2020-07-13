@@ -13,7 +13,7 @@ public class FuelBar : MonoBehaviour
     public void setTotalFuelLevel(int fuel)
     {
         jetPackFuel.maxValue = fuel;
-        jetPackFuel.value = fuel;
+        jetPackFuel.value = 0;
     }
 
     //increment fuel level
