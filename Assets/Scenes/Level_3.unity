@@ -513,11 +513,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gravity
       objectReference: {fileID: 0}
-    - target: {fileID: 1474657037693871087, guid: 8722309246510f54b93596598ca869bd,
-        type: 3}
-      propertyPath: m_TagString
-      value: NormGravity
-      objectReference: {fileID: 0}
     - target: {fileID: 1934709854173882527, guid: 8722309246510f54b93596598ca869bd,
         type: 3}
       propertyPath: m_Size.y
@@ -1248,11 +1243,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gravity (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 1474657037693871087, guid: 8722309246510f54b93596598ca869bd,
-        type: 3}
-      propertyPath: m_TagString
-      value: NormGravity
-      objectReference: {fileID: 0}
     - target: {fileID: 1934709854173882527, guid: 8722309246510f54b93596598ca869bd,
         type: 3}
       propertyPath: m_Size.y
@@ -1422,11 +1412,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gravity (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474657037693871087, guid: 8722309246510f54b93596598ca869bd,
-        type: 3}
-      propertyPath: m_TagString
-      value: NormGravity
       objectReference: {fileID: 0}
     - target: {fileID: 1934709854173882527, guid: 8722309246510f54b93596598ca869bd,
         type: 3}
@@ -1855,7 +1840,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011621956
 GameObject:
@@ -1912,7 +1897,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023250317
 GameObject:
@@ -2135,7 +2120,7 @@ PrefabInstance:
     - target: {fileID: 577777376296102563, guid: ac4aa05aca506bb4f8ae67f2d862daff,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 577777376296102563, guid: ac4aa05aca506bb4f8ae67f2d862daff,
         type: 3}
@@ -2370,11 +2355,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gravity (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 1474657037693871087, guid: 8722309246510f54b93596598ca869bd,
-        type: 3}
-      propertyPath: m_TagString
-      value: NormGravity
-      objectReference: {fileID: 0}
     - target: {fileID: 1934709854173882527, guid: 8722309246510f54b93596598ca869bd,
         type: 3}
       propertyPath: m_Size.y
@@ -2539,11 +2519,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gravity (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474657037693871087, guid: 8722309246510f54b93596598ca869bd,
-        type: 3}
-      propertyPath: m_TagString
-      value: NormGravity
       objectReference: {fileID: 0}
     - target: {fileID: 1934709854173882527, guid: 8722309246510f54b93596598ca869bd,
         type: 3}
@@ -2770,7 +2745,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -4636,11 +4611,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gravity (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 1474657037693871087, guid: 8722309246510f54b93596598ca869bd,
-        type: 3}
-      propertyPath: m_TagString
-      value: NormGravity
-      objectReference: {fileID: 0}
     - target: {fileID: 1934709854173882527, guid: 8722309246510f54b93596598ca869bd,
         type: 3}
       propertyPath: m_Size.y
@@ -5096,11 +5066,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gravity (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 1474657037693871087, guid: 8722309246510f54b93596598ca869bd,
-        type: 3}
-      propertyPath: m_TagString
-      value: NormGravity
-      objectReference: {fileID: 0}
     - target: {fileID: 1934709854173882527, guid: 8722309246510f54b93596598ca869bd,
         type: 3}
       propertyPath: m_Size.y
@@ -5185,11 +5150,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gravity (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474657037693871087, guid: 8722309246510f54b93596598ca869bd,
-        type: 3}
-      propertyPath: m_TagString
-      value: NormGravity
       objectReference: {fileID: 0}
     - target: {fileID: 1934709854173882527, guid: 8722309246510f54b93596598ca869bd,
         type: 3}
@@ -5525,11 +5485,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gravity (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474657037693871087, guid: 8722309246510f54b93596598ca869bd,
-        type: 3}
-      propertyPath: m_TagString
-      value: NormGravity
       objectReference: {fileID: 0}
     - target: {fileID: 1934709854173882527, guid: 8722309246510f54b93596598ca869bd,
         type: 3}
@@ -5867,7 +5822,7 @@ PrefabInstance:
     - target: {fileID: 3639213279711610131, guid: da059ee5e0914da49a454619562add14,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3639213279711610131, guid: da059ee5e0914da49a454619562add14,
         type: 3}
@@ -6024,11 +5979,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gravity (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474657037693871087, guid: 8722309246510f54b93596598ca869bd,
-        type: 3}
-      propertyPath: m_TagString
-      value: NormGravity
       objectReference: {fileID: 0}
     - target: {fileID: 1934709854173882527, guid: 8722309246510f54b93596598ca869bd,
         type: 3}
@@ -6480,7 +6430,7 @@ Transform:
   m_Children:
   - {fileID: 1293318492}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2037191468
 PrefabInstance:
