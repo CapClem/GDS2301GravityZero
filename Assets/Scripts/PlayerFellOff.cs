@@ -11,9 +11,9 @@ public class PlayerFellOff : MonoBehaviour
     public Rigidbody2D ridBody;    
 
     //gravity change variables
-    public float lowGravity = 0.5f;
-    public float normGravity = 1;
-    public float HighGravity = 3;
+    public float lowGravity = 1f;
+    public float normGravity = 1.45f;
+    public float HighGravity = 2.5f;
     public float startGravity;
 
     private bool respawned = false;
