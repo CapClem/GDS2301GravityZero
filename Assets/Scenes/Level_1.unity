@@ -1719,7 +1719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &194956619
 Transform:
   m_ObjectHideFlags: 0
@@ -8316,6 +8316,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 676569149, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.88268715
+      objectReference: {fileID: 0}
+    - target: {fileID: 676569149, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.46996105
+      objectReference: {fileID: 0}
+    - target: {fileID: 676569149, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 676569149, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 123.936005
+      objectReference: {fileID: 0}
+    - target: {fileID: 676569150, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 8.8707905
+      objectReference: {fileID: 0}
+    - target: {fileID: 676569150, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_PointLightInnerAngle
+      value: 70.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 676569150, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_PointLightOuterAngle
+      value: 92.95
+      objectReference: {fileID: 0}
     - target: {fileID: 3639213279650519520, guid: da059ee5e0914da49a454619562add14,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8330,6 +8358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639213279711610130, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: runSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3639213279711610131, guid: da059ee5e0914da49a454619562add14,
         type: 3}
