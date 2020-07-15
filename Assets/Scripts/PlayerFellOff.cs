@@ -16,9 +16,10 @@ public class PlayerFellOff : MonoBehaviour
     public float HighGravity = 2.5f;
     public float startGravity;
 
-    private bool respawned = false;
+    //private bool respawned = false;
 
     public CharacterController2D playerController;
+    public PlayerMovement movementScript;
 
     void Start()
 {
@@ -32,6 +33,7 @@ public class PlayerFellOff : MonoBehaviour
 
         // References character controller script
         playerController = GetComponent<CharacterController2D>();
+        movementScript = GetComponent<PlayerMovement>();
     }
 
 
@@ -46,9 +48,10 @@ public class PlayerFellOff : MonoBehaviour
            transform.localScale = startScale;
            ridBody.gravityScale = startGravity;
            ridBody.velocity = new Vector3 (0,0,0);
+           ridBody.gravityScale = normGravity;
 
            //playerController.m_UpRight = true;
-           print("You fell off the map. Learn to jump better");
+            print("You fell off the map. Learn to jump better");
         }        
 
         //load next scene
@@ -122,6 +125,20 @@ public class PlayerFellOff : MonoBehaviour
                 print("Gravity Changed");
             }
         }
+
+        else if (x.gameObject.tag == "FuelStation")
+        {
+            movementScript.regenFuel = true;
+        }
     }
-    
+
+    //if we need to dissable jetpack pickup
+    private void OnTriggerExit2D(Collider2D x)
+    {
+        if (x.gameObject.tag == "FuelStation")
+        {
+            movementScript.regenFuel = false;
+            print("no longer refueling");
+        }
+    }
 }

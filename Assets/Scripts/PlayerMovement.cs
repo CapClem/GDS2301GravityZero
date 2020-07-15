@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private LayerMask playformLayerMask;
+    [SerializeField] public LayerMask playformLayerMask;
 
     //target the movement script
     public CharacterController2D contoller;
@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     public FuelBar fuelBar;
 
+    public bool regenFuel = false;
 
 
     // Start is called before the first frame update
@@ -137,12 +138,12 @@ public class PlayerMovement : MonoBehaviour
             useJetpack = false;
 
             //regain fuel
-            if (!(fuelRemaining - fuelDrain < 0))
+            if (!(fuelRemaining - fuelDrain < 0) && regenFuel == true)
             {
                 fuelRemaining -= fuelDrain;
-                
+
             }
-            else if (fuelRemaining != 0)
+            else if (fuelRemaining != 0 && regenFuel == true)
             {
                 fuelRemaining = 0;
             }

@@ -12,6 +12,7 @@ TagManager:
   - LowGravityFlip
   - NormGravityFlip
   - HighGravityFlip
+  - FuelStation
   layers:
   - Default
   - TransparentFX
