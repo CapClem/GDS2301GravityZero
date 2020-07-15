@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5779,10 +5779,30 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.7787583
       objectReference: {fileID: 0}
+    - target: {fileID: 3639213279593335777, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3639213279593335805, guid: da059ee5e0914da49a454619562add14,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639213279650519520, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639213279650519520, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639213279650519520, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3639213279711610131, guid: da059ee5e0914da49a454619562add14,
         type: 3}
@@ -5894,6 +5914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HighGravity (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1496100032198768877, guid: eea0fe1815855aa4ba27653036b76232,
+        type: 3}
+      propertyPath: m_TagString
+      value: HighGravityFlip
       objectReference: {fileID: 0}
     - target: {fileID: 8265232745507927598, guid: eea0fe1815855aa4ba27653036b76232,
         type: 3}
@@ -6443,6 +6468,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HighGravity (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1496100032198768877, guid: eea0fe1815855aa4ba27653036b76232,
+        type: 3}
+      propertyPath: m_TagString
+      value: HighGravityFlip
       objectReference: {fileID: 0}
     - target: {fileID: 8265232745507927598, guid: eea0fe1815855aa4ba27653036b76232,
         type: 3}
