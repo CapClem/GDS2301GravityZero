@@ -153,6 +153,7 @@ public class CharacterController2D : MonoBehaviour
     {
         if (m_UpRight != false) // Flip the player upside down
         {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Gravity/GravitySwitchOn", this.gameObject);
             m_UpRight = false;
             // Multiply the player's y local scale by -1.
             Vector3 yScale = transform.localScale;
@@ -162,6 +163,7 @@ public class CharacterController2D : MonoBehaviour
         }
         else if (m_UpRight != true) // Put the player back to normal
         {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Gravity/GravitySwtichOff", this.gameObject);
             m_UpRight = true;
             NormalGravity();
             Debug.Log(m_UpRight);

@@ -77,6 +77,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Environment
   - Music
   - Player
   BanksToLoad: []
