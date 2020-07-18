@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float propelSpeed = 30f;
     private Rigidbody2D rb;
-    private bool useJetpack = false;
+    public bool useJetpack = false;
 
     float currentGravity;
 
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         ani = this.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         fuelRemaining = maxFuel;
@@ -72,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+           
                 useJetpack = true;
                 currentGravity = rb.gravityScale;
                 rb.gravityScale = 1f;
@@ -127,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(transform.up * propelSpeed * transform.localScale.y);
                 fuelRemaining += fuelDrain;
+              
             }
             fuelBar.SetFuelLevel(fuelRemaining);
             //print("You are using the jetpack");
