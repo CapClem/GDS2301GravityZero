@@ -48,7 +48,6 @@ public class PlayerFellOff : MonoBehaviour
            transform.localScale = startScale;
            ridBody.gravityScale = startGravity;
            ridBody.velocity = new Vector3 (0,0,0);
-           ridBody.gravityScale = normGravity;
 
            //playerController.m_UpRight = true;
             print("You fell off the map. Learn to jump better");

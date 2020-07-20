@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1471035406160043425}
   m_Layer: 0
   m_Name: LowGravity
-  m_TagString: HighGravity
+  m_TagString: NormGravity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
