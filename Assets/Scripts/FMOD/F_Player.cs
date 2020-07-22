@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FMOD;
 using FMODUnity;
 using FMOD.Studio;
 
@@ -13,7 +12,9 @@ public class F_Player : MonoBehaviour
     EventInstance walk;
 
     private bool jetpackSoundPlayed;
+    private bool rechargeActiv;
 
+    EventInstance jetpackRe;
     EventInstance jetPack;
 
     private void Start()
@@ -21,7 +22,12 @@ public class F_Player : MonoBehaviour
         playerCon = GetComponent<CharacterController2D>();
         playerMov = GetComponent<PlayerMovement>();
 
+        jetpackRe = RuntimeManager.CreateInstance("event:/Player/JetpackRefill");
+        jetpackRe.set3DAttributes(RuntimeUtils.To3DAttributes(transform));
+
         jetPack = RuntimeManager.CreateInstance("event:/Player/Jetpack");
+
+      
     }
 
     private void Update()
@@ -51,6 +57,18 @@ public class F_Player : MonoBehaviour
             jetPack.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             jetpackSoundPlayed = false;
         }
-            
+
+        if (playerMov.regenFuel == true && playerMov.fuelRemaining > 0 && rechargeActiv == false)
+        {
+            jetpackRe.start();
+            rechargeActiv = true;
+        }
+        else if (playerMov.regenFuel == false || playerMov.fuelRemaining == 0)
+        {
+            jetpackRe.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            rechargeActiv = false;
+        }                    
     }
+
+
 }
