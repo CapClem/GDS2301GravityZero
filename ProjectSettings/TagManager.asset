@@ -13,6 +13,7 @@ TagManager:
   - NormGravityFlip
   - HighGravityFlip
   - FuelStation
+  - Sprite
   layers:
   - Default
   - TransparentFX

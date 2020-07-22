@@ -21,7 +21,13 @@ public class Paralax : MonoBehaviour
         //set current position of camera
         startposX = transform.position.x;
         startposY = transform.position.y;
+
+        //if sprite get bounds
+        if(this.gameObject.tag == "Sprite")
+        {
         length = GetComponent<SpriteRenderer>().bounds.size.x;
+        }
+
         //print(GetComponent<SpriteRenderer>().bounds.size.x);
     }
 
