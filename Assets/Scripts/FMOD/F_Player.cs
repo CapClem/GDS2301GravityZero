@@ -9,7 +9,7 @@ public class F_Player : MonoBehaviour
     private CharacterController2D playerCon;
 
     private PlayerMovement playerMov;
-    EventInstance walk;
+    public EventInstance walk;
 
     private bool jetpackSoundPlayed;
     private bool rechargeActiv;
@@ -25,14 +25,13 @@ public class F_Player : MonoBehaviour
         jetpackRe = RuntimeManager.CreateInstance("event:/Player/JetpackRefill");
         jetpackRe.set3DAttributes(RuntimeUtils.To3DAttributes(transform));
 
-        jetPack = RuntimeManager.CreateInstance("event:/Player/Jetpack");
-
-      
+        jetPack = RuntimeManager.CreateInstance("event:/Player/Jetpack");    
     }
 
     private void Update()
     {
         Jetpack();
+        StepMaterialChange();
     }
 
     public void Step()
@@ -42,7 +41,20 @@ public class F_Player : MonoBehaviour
             walk = RuntimeManager.CreateInstance("event:/Player/Footsteps");
             walk.start();
             walk.release();
-        }     
+        }        
+    }
+
+    void StepMaterialChange()
+    {
+        if (playerMov.hit.collider != null)
+        {
+            if (playerMov.hit.collider.tag == "Metal")
+            {
+                walk.setParameterByName("Material", 1f, false);
+            }
+            else
+                walk.setParameterByName("Material", 0f, false);
+        }    
     }
 
     void Jetpack()
@@ -69,6 +81,4 @@ public class F_Player : MonoBehaviour
             rechargeActiv = false;
         }                    
     }
-
-
 }
