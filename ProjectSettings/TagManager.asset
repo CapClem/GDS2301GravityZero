@@ -14,6 +14,7 @@ TagManager:
   - HighGravityFlip
   - FuelStation
   - Sprite
+  - Metal
   layers:
   - Default
   - TransparentFX

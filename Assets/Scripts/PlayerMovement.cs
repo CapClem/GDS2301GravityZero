@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public bool useJetpack = false;
 
+    public RaycastHit2D hit;
+
     float currentGravity;
 
     //Jetpack Dash Variables
@@ -59,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         horiontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         if (Input.GetAxisRaw("Horizontal") != 0)
@@ -196,11 +199,12 @@ public class PlayerMovement : MonoBehaviour
 
     //Ref https://www.youtube.com/watch?v=c3iEl5AwUF8
     // determins if the player is on the ground or not
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         float extraHeightText = 0.1f;
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, extraHeightText, playformLayerMask);
         Color rayColor;
+        hit = raycastHit;
         if (raycastHit.collider != null)
         {
             rayColor = Color.green;
@@ -209,7 +213,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rayColor = Color.red;
         }
-
+        
         Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x, 0), Vector2.down * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
         Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, 0), Vector2.down * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
         Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, boxCollider2D.bounds.extents.y + extraHeightText), Vector2.right * 2 * (boxCollider2D.bounds.extents.x), rayColor);
