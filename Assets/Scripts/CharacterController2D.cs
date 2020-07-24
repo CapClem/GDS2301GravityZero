@@ -18,7 +18,7 @@ public class CharacterController2D : MonoBehaviour
     public bool m_Grounded;            // Whether or not the player is grounded.
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
-    private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+    public bool m_FacingRight = true;  // For determining which way the player is currently facing.
     public bool m_UpRight = true; // For determining whether the player is up right or upside down
     private Vector3 m_Velocity = Vector3.zero;
 
@@ -119,13 +119,13 @@ public class CharacterController2D : MonoBehaviour
             if (move > 0 && !m_FacingRight)
             {
                 // ... flip the player.
-                Flip();
+                Flip(0);
             }
             // Otherwise if the input is moving the player left and the player is facing right...
             else if (move < 0 && m_FacingRight)
             {
                 // ... flip the player.
-                Flip();
+                Flip(180);
             }
         }
         // If the player should jump...
@@ -138,15 +138,21 @@ public class CharacterController2D : MonoBehaviour
     }
 
 
-    private void Flip()
+    private void Flip(float rotValue)
     {
         // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
 
-        // Multiply the player's x local scale by -1.
-        Vector3 xScale = transform.localScale;
-        xScale.x *= -1;
-        transform.localScale = xScale;
+        //// Multiply the player's x local scale by -1.
+        //Vector3 xScale = transform.localScale;
+        //xScale.x *= -1;
+        //transform.localScale = xScale;
+
+        // Flip the player using its y rotation axis.
+        Quaternion yRot = transform.localRotation;
+        yRot.y = rotValue;
+        transform.localRotation = yRot;
+
     }
 
     public void GravityFlip() //Gravity Flip

@@ -27,6 +27,15 @@ public class PlayerMovement : MonoBehaviour
 
     float currentGravity;
 
+    //Jetpack Dash Variables
+    public float dashSpeed = 50;
+    private float dashTime;
+    public float startDashTime = 2f;
+    private float abilityTimer;
+    public float startAbilityTimer = 5f;
+    private bool dashActivatable = false;
+    public ParticleSystem dashEffect;
+
     //Jetpack Fuelbar
     public int fuelRemaining;
     public int maxFuel = 100;
@@ -39,13 +48,13 @@ public class PlayerMovement : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {        
         ani = this.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         fuelRemaining = maxFuel;
         fuelBar.setTotalFuelLevel(maxFuel);
-    }
+        abilityTimer = startAbilityTimer;
+    }   
 
     // Update is called once per frame
     void Update()
@@ -72,8 +81,7 @@ public class PlayerMovement : MonoBehaviour
                 //canUseJetpack = true;
             }
             else
-            {
-           
+            {           
                 useJetpack = true;
                 currentGravity = rb.gravityScale;
                 rb.gravityScale = 1f;
@@ -109,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
             crouch = false;
             ani.SetBool("Crouch", false);
         }
+        
     }
 
     void FixedUpdate()
@@ -117,9 +126,41 @@ public class PlayerMovement : MonoBehaviour
         jump = false;
         ani.SetBool("Jump", false);
 
-        if (useJetpack == true)
+        //Dash Cooldown Timer
+        if (abilityTimer <= 0)
         {
-            
+            dashActivatable = true;           
+        }
+        else
+        {
+            abilityTimer -= Time.fixedDeltaTime;
+            Debug.Log("Ability Cooldown Time " + abilityTimer);
+        }
+
+        //Dash Ability
+        if (dashActivatable == true)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Debug.Log("Dash Activated");
+                dashActivatable = false;
+                abilityTimer = startAbilityTimer;
+                dashEffect.Play();
+
+                if (contoller.m_FacingRight == true)
+                {
+                    rb.velocity = Vector3.right * dashSpeed; //DashRight 
+                }
+                else if (contoller.m_FacingRight == false)
+                {
+                    rb.velocity = Vector3.left * dashSpeed; //DashLeft
+                    
+                }
+            }
+        }
+
+        if (useJetpack == true)
+        {            
             if ((fuelRemaining + fuelDrain) >= 100)
             {
                 fuelRemaining = 100;
@@ -133,7 +174,6 @@ public class PlayerMovement : MonoBehaviour
             }
             fuelBar.SetFuelLevel(fuelRemaining);
             //print("You are using the jetpack");
-
         }
 
         if (IsGrounded())
