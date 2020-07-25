@@ -37,7 +37,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("TestingLevel", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level_1", LoadSceneMode.Single);
     }
 
     public void LoadControls()
