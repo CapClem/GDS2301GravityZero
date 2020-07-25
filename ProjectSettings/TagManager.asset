@@ -15,6 +15,9 @@ TagManager:
   - FuelStation
   - Sprite
   - Metal
+  - Life1
+  - Life2
+  - Life3
   layers:
   - Default
   - TransparentFX

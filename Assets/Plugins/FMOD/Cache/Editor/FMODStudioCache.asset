@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9092065835625456675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD Banks/Desktop/Desktop/Music.bank
+  SubDir: 
+  lastModified: 637313012177920683
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-8941678831829800149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +33,7 @@ MonoBehaviour:
   Path: event:/Music/Music (WIP)
   guid: 7c962b81ed384645b47203d360bd6907
   Banks:
-  - {fileID: 8904131290078211199}
+  - {fileID: -9092065835625456675}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -38,7 +56,7 @@ MonoBehaviour:
   Path: event:/Gravity/GravitySwitchOn
   guid: 773dfa7d63f34b47a7a1e95829b1a1a4
   Banks:
-  - {fileID: 6582742310794565645}
+  - {fileID: 9045045619563629042}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -46,7 +64,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1625
---- !u!114 &-6905647592661942552
+--- !u!114 &-7991578587148340780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,6 +81,41 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-7755600948921209312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Environment.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD Banks/Desktop/Desktop/Environment.bank
+  SubDir: 
+  lastModified: 637313012177531713
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-6905647592661942552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Height
+  m_EditorClassIdentifier: 
+  Name: Height
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-6765870560191204470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,13 +149,13 @@ MonoBehaviour:
   Path: event:/Collision/Box
   guid: 1e534d645243dc4f85f3eb14bed7683c
   Banks:
-  - {fileID: 6582742310794565645}
+  - {fileID: -7755600948921209312}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
+  MinDistance: 7.2000003
+  MaxDistance: 450
   Length: 881
 --- !u!114 &-5073684995044912375
 MonoBehaviour:
@@ -119,7 +172,7 @@ MonoBehaviour:
   Path: event:/Gravity/GravitySwtichOff
   guid: ae99d4404831924c8e0af5bfc99361fc
   Banks:
-  - {fileID: 6582742310794565645}
+  - {fileID: 9045045619563629042}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -141,12 +194,93 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/FMOD Banks/Desktop/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637310309090387169
+  lastModified: 637313012177521742
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1418
+    Value: 2010
   Exists: 1
+--- !u!114 &-2824374069545031666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD Banks/Desktop/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637313012177521742
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-2792366266600243736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/FoundFuel
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/FoundFuel
+  guid: 2a304b7851344b478f71e6d7a08e14c4
+  Banks:
+  - {fileID: 7798917651822496301}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2073
+--- !u!114 &-2612166684263820383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Footsteps/Material
+  m_EditorClassIdentifier: 
+  Name: Material
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
+--- !u!114 &-1320672584928867963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/HikingBoots
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/HikingBoots
+  guid: b39c31801199574dbf213a21a8398da8
+  Banks:
+  - {fileID: 7798917651822496301}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1879
 --- !u!114 &-1247561026588552712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +298,52 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-1005926718049559026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/GravityChange
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/GravityChange
+  guid: 6a0cb62e83a90e469b4f4554b3f55ee4
+  Banks:
+  - {fileID: 7798917651822496301}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2564
+--- !u!114 &-875719650736477525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/Jumping&Landing/Jump
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/Jumping&Landing/Jump
+  guid: fe7d4764920f7f4ba7da803362d16b38
+  Banks:
+  - {fileID: 9045045619563629042}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 830
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,10 +358,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -4058614039022305301}
-  - {fileID: 6582742310794565645}
-  - {fileID: 8133188759899744188}
-  - {fileID: 8904131290078211199}
-  - {fileID: 7960288747307495871}
+  - {fileID: -7755600948921209312}
+  - {fileID: 7798917651822496301}
+  - {fileID: 9101125539916774841}
+  - {fileID: -2824374069545031666}
+  - {fileID: -9092065835625456675}
+  - {fileID: 9045045619563629042}
   EditorEvents:
   - {fileID: -6559272502801490104}
   - {fileID: -8741202419319433188}
@@ -191,12 +373,20 @@ MonoBehaviour:
   - {fileID: 3892255013979387198}
   - {fileID: 6838120966119544363}
   - {fileID: 5722600757317158645}
+  - {fileID: -2792366266600243736}
+  - {fileID: -1005926718049559026}
+  - {fileID: -1320672584928867963}
+  - {fileID: 3188090691585176600}
+  - {fileID: 1386468265240384121}
+  - {fileID: 1949764819834943935}
+  - {fileID: 6948274930702403003}
+  - {fileID: -875719650736477525}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 8133188759899744188}
+  - {fileID: -2824374069545031666}
   StringsBanks:
   - {fileID: -4058614039022305301}
-  stringsBankWriteTime: 637310309090387169
+  stringsBankWriteTime: 637313012177521742
   cacheVersion: 3
 --- !u!114 &247873679027079596
 MonoBehaviour:
@@ -214,7 +404,7 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &794862311649760726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,16 +420,39 @@ MonoBehaviour:
   Path: event:/Player/Footsteps
   guid: 04bce97375aca44185b36445b64b1610
   Banks:
-  - {fileID: 7960288747307495871}
+  - {fileID: 9045045619563629042}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 247873679027079596}
-  - {fileID: -6905647592661942552}
+  - {fileID: -2612166684263820383}
+  - {fileID: -7991578587148340780}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &1386468265240384121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/Death/Death
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/Death/Death
+  guid: 501d47d3c3f16e41a85de18d05011214
+  Banks:
+  - {fileID: 9045045619563629042}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3615
 --- !u!114 &1637244932275332018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +470,52 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &1949764819834943935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/Jumping&Landing/Land
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/Jumping&Landing/Land
+  guid: 96e0aec2bba8dc4dafbbd127052eca44
+  Banks:
+  - {fileID: 9045045619563629042}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 389
+--- !u!114 &3188090691585176600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/Aliens
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/Aliens
+  guid: 7747442a644ca24c91b6a5a764b37e89
+  Banks:
+  - {fileID: 9101125539916774841}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2102
 --- !u!114 &3892255013979387198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +531,7 @@ MonoBehaviour:
   Path: event:/Player/Jetpack
   guid: 05a304da99808640b88ce8155793c8f2
   Banks:
-  - {fileID: 7960288747307495871}
+  - {fileID: 9045045619563629042}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -298,6 +557,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &5238445089999802993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicDynamic/VerseChange
+  m_EditorClassIdentifier: 
+  Name: VerseChange
+  Min: 0
+  Max: 3
+  Default: 0
+  Exists: 1
 --- !u!114 &5722600757317158645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,12 +589,12 @@ MonoBehaviour:
   Path: event:/Music/MusicDynamic
   guid: 3352be07be815647993da25a1ec97205
   Banks:
-  - {fileID: 8904131290078211199}
+  - {fileID: -9092065835625456675}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 9018124564580771195}
+  - {fileID: 5238445089999802993}
   MinDistance: 0
   MaxDistance: 0
   Length: 180000
@@ -357,7 +633,7 @@ MonoBehaviour:
   lastModified: 637307519492707453
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &6838120966119544363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,14 +649,55 @@ MonoBehaviour:
   Path: event:/Player/JetpackRefill
   guid: d4d676d8697fe84682bfc1d99b240143
   Banks:
-  - {fileID: 7960288747307495871}
-  IsStream: 1
+  - {fileID: 9045045619563629042}
+  IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 20308
+  Length: 2913
+--- !u!114 &6948274930702403003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VoiceOvers/Jetpack/JetPackFuel
+  m_EditorClassIdentifier: 
+  Path: event:/VoiceOvers/Jetpack/JetPackFuel
+  guid: 997c02af720c2345b3f8757508ab3174
+  Banks:
+  - {fileID: 9045045619563629042}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1763
+--- !u!114 &7798917651822496301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Level1VoiceOver.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD Banks/Desktop/Desktop/Level1VoiceOver.bank
+  SubDir: 
+  lastModified: 637313012177531713
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &7960288747307495871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +715,7 @@ MonoBehaviour:
   lastModified: 637307519492737372
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &8133188759899744188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +733,7 @@ MonoBehaviour:
   lastModified: 637304017841547971
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &8904131290078211199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,7 +751,7 @@ MonoBehaviour:
   lastModified: 637310309090925734
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &9018124564580771195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +768,24 @@ MonoBehaviour:
   Min: 0
   Max: 3
   Default: 0
+  Exists: 0
+--- !u!114 &9045045619563629042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD Banks/Desktop/Desktop/Player.bank
+  SubDir: 
+  lastModified: 637313012177551669
+  LoadResult: 0
+  FileSizes: []
   Exists: 1
 --- !u!114 &9071902050748012619
 MonoBehaviour:
@@ -470,3 +805,21 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &9101125539916774841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Level2VoiceOver.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD Banks/Desktop/Desktop/Level2VoiceOver.bank
+  SubDir: 
+  lastModified: 637313012177521742
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
