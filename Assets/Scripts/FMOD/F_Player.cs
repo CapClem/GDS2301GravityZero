@@ -44,6 +44,11 @@ public class F_Player : MonoBehaviour
         }        
     }
 
+    public void Land()
+    {
+        RuntimeManager.PlayOneShotAttached("event:/VoiceOvers/Jumping&Landing/Land", this.gameObject);
+    }
+
     void StepMaterialChange()
     {
         if (playerMov.hit.collider != null)
@@ -79,6 +84,9 @@ public class F_Player : MonoBehaviour
         {
             jetpackRe.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             rechargeActiv = false;
-        }                    
+        } 
+
+        
+           
     }
 }

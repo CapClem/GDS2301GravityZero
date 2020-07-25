@@ -78,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (IsGrounded())
             {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/VoiceOvers/Jumping&Landing/Jump", this.gameObject);
                 jump = true;
                 print("You have jumped, " + jump);
                 ani.SetBool("Jump", true);
@@ -166,6 +167,7 @@ public class PlayerMovement : MonoBehaviour
         {            
             if ((fuelRemaining + fuelDrain) >= 100)
             {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/VoiceOvers/Jetpack/JetPackFuel", this.gameObject);
                 fuelRemaining = 100;
                 useJetpack = false;
             }

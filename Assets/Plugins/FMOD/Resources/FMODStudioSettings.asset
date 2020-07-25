@@ -78,6 +78,8 @@ MonoBehaviour:
   - Master
   Banks:
   - Environment
+  - Level1VoiceOver
+  - Level2VoiceOver
   - Music
   - Player
   BanksToLoad: []
