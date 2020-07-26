@@ -18,6 +18,7 @@ TagManager:
   - Life1
   - Life2
   - Life3
+  - Video Player
   layers:
   - Default
   - TransparentFX
