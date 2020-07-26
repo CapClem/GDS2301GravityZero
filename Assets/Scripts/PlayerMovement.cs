@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             abilityTimer -= Time.fixedDeltaTime;
-            Debug.Log("Ability Cooldown Time " + abilityTimer);
+            //Debug.Log("Ability Cooldown Time " + abilityTimer);
         }
 
         //Dash Ability

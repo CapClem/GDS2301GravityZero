@@ -10,6 +10,7 @@ public class ButtonFunctions : MonoBehaviour
     
     void Update()
     {
+        //reload scene
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             int scene = SceneManager.GetActiveScene().buildIndex;
@@ -17,6 +18,7 @@ public class ButtonFunctions : MonoBehaviour
             Time.timeScale = 1;
         }
 
+        //quit area
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (SceneManager.GetActiveScene().name == "MainMenu")

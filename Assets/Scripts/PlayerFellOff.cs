@@ -20,6 +20,7 @@ public class PlayerFellOff : MonoBehaviour
 
     public CharacterController2D playerController;
     public PlayerMovement movementScript;
+    public LifeCount LifeCounterScript;
 
     void Start()
 {
@@ -34,6 +35,7 @@ public class PlayerFellOff : MonoBehaviour
         // References character controller script
         playerController = GetComponent<CharacterController2D>();
         movementScript = GetComponent<PlayerMovement>();
+        LifeCounterScript = GetComponent<LifeCount>();
     }
 
 
@@ -51,6 +53,8 @@ public class PlayerFellOff : MonoBehaviour
 
            //playerController.m_UpRight = true;
             print("You fell off the map. Learn to jump better");
+
+            LifeCounterScript.ChangeLifeImages(false, 1);
         }        
 
         //load next scene

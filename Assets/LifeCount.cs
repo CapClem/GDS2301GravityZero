@@ -9,13 +9,15 @@ public class LifeCount : MonoBehaviour
     public GameObject livesHolder;
     public List<GameObject> lives;
 
-    int lifeCount;
     public int TotalLife = 3;
+
+    public ButtonFunctions changeSceneControler;
 
     // Start is called before the first frame update
     void Start()
     {
-        lifeCount = TotalLife;
+        changeSceneControler = GameObject.Find("Main Camera").GetComponent<ButtonFunctions>();
+        ChangeLifeImages(true, TotalLife);
     }
 
     // Update is called once per frame
@@ -23,43 +25,55 @@ public class LifeCount : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Equals))
         {
-            AddLife();
             print("You gained a life");
+            ChangeLifeImages(true, 1);
         }
         if (Input.GetKeyDown(KeyCode.Minus))
         {
-            LowerLife();
             print("You lost a life");
+            ChangeLifeImages(false, 1);
         }
     }
 
-    public void LowerLife()
+    //Add/Remove health function
+    public void ChangeLifeImages(bool y, int u)
     {
-        ChangeLifeImages(false);
-        lifeCount -= 1;
-        //if (lifeCount == 0)
-    }
+        for (int i = 0; i < u; i++)
+        {            
+            if (y == true && lives.Count + 1 <= TotalLife)
+            {
+                lives.Add(Instantiate(lifeImage, livesHolder.transform));
+                //lives[lives.Length] = lifeImage;
+            }
+            
+            else if (y == false)
+            {
+                int x = lives.Count;
+                Destroy(lives[x - 1]);
+                lives.Remove(lives[x - 1]);
 
-    public void AddLife()
-    {
-        if (lifeCount < TotalLife)
-        lifeCount += 1;
-        ChangeLifeImages(true);        
-    }
-
-    //update current life images
-    public void ChangeLifeImages(bool y)
-    {
-        if (y == true)
-        {
-            lives.Add(Instantiate(lifeImage, livesHolder.transform));
-            //lives[lives.Length] = lifeImage;
-        }
-        else if (y == false)
-        {
-            int x = lives.Count;
-            Destroy(lives[x - 1]);
-            lives.Remove(lives[x-1]);            
-        }
+                // check if player has died
+                if (lives.Count == 0)
+                {
+                    print("You Lose the game");
+                    changeSceneControler.LoadMainMenu();
+                }
+            }
+        }     
     }
 }
+
+// scrapped
+/*public void LowerLife()
+{
+    ChangeLifeImages(false, 1);
+    lifeCount -= 1;
+    //if (lifeCount == 0)
+}
+
+public void AddLife()
+{
+    if (lifeCount < TotalLife)
+    lifeCount += 1;
+    ChangeLifeImages(true, 1);        
+}*/
