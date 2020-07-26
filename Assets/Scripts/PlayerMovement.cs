@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     //is the player?
     private bool jump = false;
     private bool crouch = false;
+    public ParticleSystem jetEffect;
 
     public Collider2D boxCollider2D;
 
@@ -107,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.gravityScale = currentGravity;
             }
+            jetEffect.Stop();
         }
 
         //crouch
@@ -164,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (useJetpack == true)
-        {            
+        {
             if ((fuelRemaining + fuelDrain) >= 100)
             {
                 FMODUnity.RuntimeManager.PlayOneShotAttached("event:/VoiceOvers/Jetpack/JetPackFuel", this.gameObject);
@@ -175,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(transform.up * propelSpeed * transform.localScale.y);
                 fuelRemaining += fuelDrain;
-              
+                jetEffect.Play();
             }
             fuelBar.SetFuelLevel(fuelRemaining);
             //print("You are using the jetpack");
