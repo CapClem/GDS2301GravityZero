@@ -5,8 +5,10 @@ using UnityEngine;
 public class IntroStarter : MonoBehaviour
 {
     Animator ani;
+    public float waitTime;
+    public Canvas canvas;
+    
         
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,7 @@ public class IntroStarter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //trigger video if animator says too
         if (ani.GetBool("Start Video") == true)
         {
             PlayVideo();
@@ -23,11 +26,23 @@ public class IntroStarter : MonoBehaviour
         }
     }
 
+    //start the video
     public void PlayVideo()
     {
         GameObject vid = GameObject.Find("Video Player");
-        var VideoPlayer = vid.AddComponent<UnityEngine.Video.VideoPlayer>();
-        VideoPlayer.Play();
-        print("Vid Started");
+        var x = vid.GetComponent<UnityEngine.Video.VideoPlayer>();        
+        x.Play();
+        //print("Vid Started" + vid.name);
+        waitTime = (float) x.clip.length;
+        StartCoroutine(endVid());
+    }
+
+
+    //end video after playing
+    IEnumerator endVid()
+    {
+        print("Change Scene");
+        yield return new WaitForSeconds(waitTime);
+        canvas.GetComponent<ButtonFunctions>().LoadGame();
     }
 }
