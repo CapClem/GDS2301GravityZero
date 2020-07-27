@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
 {
-    
+    bool vidPlaying = false;
     
     void Update()
     {
@@ -21,7 +21,11 @@ public class ButtonFunctions : MonoBehaviour
         //quit area
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (SceneManager.GetActiveScene().name == "MainMenu")
+            if (SceneManager.GetActiveScene().name == "MainMenu" && vidPlaying == true)
+            {
+                LoadGame();
+            }
+            else if (SceneManager.GetActiveScene().name == "MainMenu" && vidPlaying == false)
             {
                 ExitGame();
             }
@@ -35,6 +39,14 @@ public class ButtonFunctions : MonoBehaviour
                 LoadMainMenu();
             }
         }
+    }
+
+    public void StartIntro()
+    {
+        GameObject x = GameObject.Find("Video Pannel");
+        Animator ani = x.GetComponent<Animator>();
+        ani.SetTrigger("Start Intro");
+        vidPlaying = true;
     }
 
     public void LoadGame()

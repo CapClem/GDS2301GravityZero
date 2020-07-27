@@ -654,7 +654,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 157967427}
-        m_MethodName: LoadGame
+        m_MethodName: StartIntro
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1023,7 +1023,7 @@ GameObject:
   - component: {fileID: 1481572115}
   - component: {fileID: 1481572116}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Video Pannel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1113,6 +1113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34f67bac27bf274aabcb8c6d4b65d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitTime: 0
+  canvas: {fileID: 157967424}
 --- !u!1 &1742744537
 GameObject:
   m_ObjectHideFlags: 0
