@@ -16,33 +16,31 @@ public class PlayerMovement : MonoBehaviour
     //is the player?
     private bool jump = false;
     private bool crouch = false;
-    public ParticleSystem jetEffect;
 
     public Collider2D boxCollider2D;
 
-    Animator ani;
+    private Animator ani;
 
+    //Jet Hover Variables
     public float propelSpeed = 30f;
     private Rigidbody2D rb;
     public bool useJetpack = false;
+    public ParticleSystem jetEffect;
 
     public RaycastHit2D hit;
 
-    float currentGravity;
-
     //Jetpack Dash Variables
     public float dashSpeed = 50;
-    private float dashTime;
-    public float startDashTime = 2f;
     private float abilityTimer;
     public float startAbilityTimer = 5f;
     private bool dashActivatable = false;
     public ParticleSystem dashEffect;
 
-    //Jetpack Fuelbar
+    //Jetpack Fuelbar UI
     public int fuelRemaining;
     public int maxFuel = 100;
-    public int fuelDrain = 1;
+    private int fuelDrain = 1;
+    private float startGravity;
 
     public FuelBar fuelBar;
 
@@ -81,16 +79,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 FMODUnity.RuntimeManager.PlayOneShotAttached("event:/VoiceOvers/Jumping&Landing/Jump", this.gameObject);
                 jump = true;
-                print("You have jumped, " + jump);
                 ani.SetBool("Jump", true);
-                //canUseJetpack = true;
             }
-            else
-            {           
+            else if(IsGrounded() != true)
+            {
                 useJetpack = true;
-                currentGravity = rb.gravityScale;
+
+                startGravity = rb.gravityScale;
+               
                 rb.gravityScale = 1f;
-                
+
                 //Add initial fuel boost
                 if (rb.velocity.y < 0 && !(fuelRemaining >= 100))
                 {
@@ -103,12 +101,12 @@ public class PlayerMovement : MonoBehaviour
         //stop using the jetpack
         if (Input.GetButtonUp("Jump"))
         {
-            useJetpack = false;
-            if (currentGravity != 0)
+            if (useJetpack == true)
             {
-                rb.gravityScale = currentGravity;
+                rb.gravityScale = startGravity;
+                useJetpack = false;            
             }
-            jetEffect.Stop();
+                jetEffect.Stop();            
         }
 
         //crouch
@@ -140,16 +138,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             abilityTimer -= Time.fixedDeltaTime;
-            //Debug.Log("Ability Cooldown Time " + abilityTimer);
         }
 
         //Dash Ability
         if (dashActivatable == true)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift)) //Dash Input
             {
-                Debug.Log("Dash Activated");
-                dashActivatable = false;
+                dashActivatable = false; //Resetting the dash's activatability: Now the player can't use it again until it's activated by the cooldown
                 abilityTimer = startAbilityTimer;
                 dashEffect.Play();
 
@@ -159,8 +155,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (contoller.m_FacingRight == false)
                 {
-                    rb.velocity = Vector3.left * dashSpeed; //DashLeft
-                    
+                    rb.velocity = Vector3.left * dashSpeed; //DashLeft                    
                 }
             }
         }
@@ -172,15 +167,17 @@ public class PlayerMovement : MonoBehaviour
                 FMODUnity.RuntimeManager.PlayOneShotAttached("event:/VoiceOvers/Jetpack/JetPackFuel", this.gameObject);
                 fuelRemaining = 100;
                 useJetpack = false;
+                rb.gravityScale = startGravity;
+                jetEffect.Stop();
             }
             else
             {
-                rb.AddForce(transform.up * propelSpeed * transform.localScale.y);
+                rb.AddForce(Vector3.up * propelSpeed * transform.localScale.y);
                 fuelRemaining += fuelDrain;
                 jetEffect.Play();
             }
+
             fuelBar.SetFuelLevel(fuelRemaining);
-            //print("You are using the jetpack");
         }
 
         if (IsGrounded())

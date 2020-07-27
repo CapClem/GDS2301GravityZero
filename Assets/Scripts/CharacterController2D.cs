@@ -142,12 +142,7 @@ public class CharacterController2D : MonoBehaviour
     {
         // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
-
-        //// Multiply the player's x local scale by -1.
-        //Vector3 xScale = transform.localScale;
-        //xScale.x *= -1;
-        //transform.localScale = xScale;
-
+       
         // Flip the player using its y rotation axis.
         Quaternion yRot = transform.localRotation;
         yRot.y = rotValue;
@@ -157,30 +152,28 @@ public class CharacterController2D : MonoBehaviour
 
     public void GravityFlip() //Gravity Flip
     {
-        if (m_UpRight != false) // Flip the player upside down
+        if (m_UpRight == false) // Flip the player upside down
         {
             FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Gravity/GravitySwitchOn", this.gameObject);
-            m_UpRight = false;
-            // Multiply the player's y local scale by -1.
+
+            // Set's player's y scale to -1
             Vector3 yScale = transform.localScale;
             yScale.y = -1;
             transform.localScale = yScale;
-            Debug.Log(m_UpRight);
+
+            Debug.Log("I flipped Upside Down");
         }
-        else if (m_UpRight != true) // Put the player back to normal
+        else if (m_UpRight == true) // Unflips the player
         {
             FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Gravity/GravitySwtichOff", this.gameObject);
-            m_UpRight = true;
-            NormalGravity();
-            Debug.Log(m_UpRight);
+
+           // Resets the y scale
+            Vector3 yScale = transform.localScale;
+            yScale.y = 1;
+            transform.localScale = yScale;
+
+            Debug.Log("I'm back Upright");
         }
 
-    }
-    private void NormalGravity()
-    {
-        // Resets the y scale
-        Vector3 yScale = transform.localScale;
-        yScale.y = 1;
-        transform.localScale = yScale;
     }
 }
