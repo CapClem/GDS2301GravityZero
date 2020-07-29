@@ -145,6 +145,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift)) //Dash Input
             {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/JetpackDash", this.gameObject);
                 dashActivatable = false; //Resetting the dash's activatability: Now the player can't use it again until it's activated by the cooldown
                 abilityTimer = startAbilityTimer;
                 dashEffect.Play();
