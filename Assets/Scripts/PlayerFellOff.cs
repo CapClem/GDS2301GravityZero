@@ -103,6 +103,11 @@ public class PlayerFellOff : MonoBehaviour
             playerController.GravityFlip();
             print("Gravity Changed");
         }
+        else if (x.gameObject.tag == "Health")
+        {
+            LifeCounterScript.ChangeLifeImages(true, 1);
+            Destroy(x.gameObject);
+        }
 
         if (x.gameObject.tag == "FuelStation")
         {

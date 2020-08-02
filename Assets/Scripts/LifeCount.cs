@@ -9,7 +9,8 @@ public class LifeCount : MonoBehaviour
     public GameObject livesHolder;
     public List<GameObject> lives;
 
-    public int TotalLife = 3;
+    public int TotalLife = 5;
+    public int StartingLife = 3;
 
     public ButtonFunctions changeSceneControler;
 
@@ -17,7 +18,7 @@ public class LifeCount : MonoBehaviour
     void Start()
     {
         changeSceneControler = GameObject.Find("Main Camera").GetComponent<ButtonFunctions>();
-        ChangeLifeImages(true, TotalLife);
+        ChangeLifeImages(true, StartingLife);
     }
 
     // Update is called once per frame
