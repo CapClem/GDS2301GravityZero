@@ -19,7 +19,7 @@ public class PlayerFellOff : MonoBehaviour
     public LifeCount LifeCounterScript;
 
     void Start()
-{
+    {
         // set player possition for reset
         startPos = this.gameObject.transform.position;             
 
@@ -108,11 +108,38 @@ public class PlayerFellOff : MonoBehaviour
             LifeCounterScript.ChangeLifeImages(true, 1);
             Destroy(x.gameObject);
         }
+        else if (x.gameObject.tag == "FallAble")
+        {
+            //Trigger Fall
+            StartCoroutine(Fall(3, 6, x.gameObject));
+        }
 
         if (x.gameObject.tag == "FuelStation")
         {
             movementScript.regenFuel = true;
         }
+    }
+
+    //Trigger fall + reset
+    IEnumerator Fall(float fallTimer, float waitTime, GameObject z)
+    {
+        //save curret position & rotation
+        Vector3 SPos = z.transform.position;
+        Quaternion rPos = z.transform.rotation;
+
+        Animation ani = z.GetComponent<Animation>();
+        ani.Play();
+        yield return new WaitForSeconds(fallTimer);
+        
+        Rigidbody2D y = z.AddComponent<Rigidbody2D>();
+        y.constraints = RigidbodyConstraints2D.FreezeRotation;
+        ani.Stop();
+        yield return new WaitForSeconds(waitTime);
+
+        //Reset
+        Destroy(z.GetComponent<Rigidbody2D>());
+        z.transform.position = SPos;
+        z.transform.rotation = rPos;
     }
 
     //if we need to dissable jetpack pickup

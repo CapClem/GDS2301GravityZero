@@ -20,6 +20,7 @@ TagManager:
   - Life3
   - Video Player
   - Health
+  - FallAble
   layers:
   - Default
   - TransparentFX
