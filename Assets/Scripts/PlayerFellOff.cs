@@ -37,11 +37,12 @@ public class PlayerFellOff : MonoBehaviour
         {
            this.transform.position = startPos;
            ridBody.velocity = new Vector3 (0,0,0);
-
            playerController.m_UpRight = true; //Making sure the player isn't upside down
            playerController.GravityFlip();
-            
-            LifeCounterScript.ChangeLifeImages(false, 1);
+
+           //reset Gravity
+           this.ridBody.gravityScale = normGravity;
+           LifeCounterScript.ChangeLifeImages(false, 1);
         }        
 
         //load next scene
