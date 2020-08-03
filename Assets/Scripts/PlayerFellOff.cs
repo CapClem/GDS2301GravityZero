@@ -37,11 +37,12 @@ public class PlayerFellOff : MonoBehaviour
         {
            this.transform.position = startPos;
            ridBody.velocity = new Vector3 (0,0,0);
-
            playerController.m_UpRight = true; //Making sure the player isn't upside down
            playerController.GravityFlip();
-            
-            LifeCounterScript.ChangeLifeImages(false, 1);
+
+           //reset Gravity
+           this.ridBody.gravityScale = normGravity;
+           LifeCounterScript.ChangeLifeImages(false, 1);
         }        
 
         //load next scene
@@ -53,7 +54,7 @@ public class PlayerFellOff : MonoBehaviour
         //Change gravity
         if (x.gameObject.tag == "LowGravity")
         {
-            ridBody.gravityScale = lowGravity;
+            changeGravityScale(lowGravity,1);
             playerController.m_UpRight = true;
                         
             playerController.GravityFlip();
@@ -62,7 +63,7 @@ public class PlayerFellOff : MonoBehaviour
         }
         else if (x.gameObject.tag == "NormGravity")
         {
-            ridBody.gravityScale = normGravity;
+            changeGravityScale(normGravity, 1);
             playerController.m_UpRight = true;
 
             playerController.GravityFlip();
@@ -71,7 +72,7 @@ public class PlayerFellOff : MonoBehaviour
         }
         else if (x.gameObject.tag == "HighGravity")
         {
-            ridBody.gravityScale = HighGravity;
+            changeGravityScale(HighGravity, 1);
             playerController.m_UpRight = true;
 
             playerController.GravityFlip();
@@ -81,7 +82,7 @@ public class PlayerFellOff : MonoBehaviour
         //Gravity flip collisions to flip the player upside down
         else if (x.gameObject.tag == "LowGravityFlip")
         {
-            ridBody.gravityScale = lowGravity * -1;
+            changeGravityScale(lowGravity, -1);
             playerController.m_UpRight = false;
 
             playerController.GravityFlip();
@@ -89,7 +90,7 @@ public class PlayerFellOff : MonoBehaviour
         }
         else if (x.gameObject.tag == "NormGravityFlip")
         {
-            ridBody.gravityScale = normGravity * -1;
+            changeGravityScale(normGravity, -1);
             playerController.m_UpRight = false;
 
             playerController.GravityFlip();
@@ -97,7 +98,7 @@ public class PlayerFellOff : MonoBehaviour
         }
         else if (x.gameObject.tag == "HighGravityFlip")
         {
-            ridBody.gravityScale = HighGravity * -1;
+            changeGravityScale(HighGravity, -1);
             playerController.m_UpRight = false;
             
             playerController.GravityFlip();
@@ -150,5 +151,19 @@ public class PlayerFellOff : MonoBehaviour
             movementScript.regenFuel = false;
             print("no longer refueling");
         }
+    }
+
+    //Conrtols gravity changes wilst using the jetpack 
+    void changeGravityScale(float gravScale, float posOrNeg)
+    {
+        if (movementScript.useJetpack == true)
+        {
+            ridBody.gravityScale = normGravity * posOrNeg;
+            movementScript.startGravity = gravScale * posOrNeg;
+        }
+        else
+        {
+            ridBody.gravityScale = gravScale * posOrNeg;
+        }        
     }
 }

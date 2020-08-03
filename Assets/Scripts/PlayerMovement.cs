@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public int fuelRemaining;
     public int maxFuel = 100;
     private int fuelDrain = 1;
-    private float startGravity;
+    public float startGravity;
 
     public FuelBar fuelBar;
 
@@ -203,8 +203,23 @@ public class PlayerMovement : MonoBehaviour
     // determins if the player is on the ground or not
     public bool IsGrounded()
     {
+        //do we need to flip ground check
+        Vector2 x;
+        int y;
+        if (contoller.m_UpRight == true)
+        {
+            x = Vector2.down;
+            y = 1;
+        }
+        else
+        {
+            x = Vector2.up;
+            y = -1;
+        }
+
         float extraHeightText = 0.1f;
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, extraHeightText, playformLayerMask);
+
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, x, extraHeightText, playformLayerMask);
         Color rayColor;
         hit = raycastHit;
         if (raycastHit.collider != null)
@@ -216,9 +231,9 @@ public class PlayerMovement : MonoBehaviour
             rayColor = Color.red;
         }
         
-        Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x, 0), Vector2.down * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
-        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, 0), Vector2.down * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
-        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, boxCollider2D.bounds.extents.y + extraHeightText), Vector2.right * 2 * (boxCollider2D.bounds.extents.x), rayColor);
+        Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
+        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
+        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, (boxCollider2D.bounds.extents.y + extraHeightText)*y), Vector2.right * 2 * (boxCollider2D.bounds.extents.x), rayColor);
         //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
     }
