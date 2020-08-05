@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public bool useJetpack = false;
     public ParticleSystem jetEffect;
+    public ParticleSystem jumpDust;
 
     public RaycastHit2D hit;
 
@@ -87,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
                 jump = true;
                 StartCoroutine(jumpResetTime());
                 ani.SetBool("Jump", true);
+                jumpDust.Play();
             }
             else if(IsGrounded() != true && canIJump == false)
             {
