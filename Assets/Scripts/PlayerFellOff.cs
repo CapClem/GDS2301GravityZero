@@ -18,6 +18,8 @@ public class PlayerFellOff : MonoBehaviour
     public PlayerMovement movementScript;
     public LifeCount LifeCounterScript;
 
+    Animator SaveAni;
+
     void Start()
     {
         // set player possition for reset
@@ -27,6 +29,7 @@ public class PlayerFellOff : MonoBehaviour
         playerController = GetComponent<CharacterController2D>();
         movementScript = GetComponent<PlayerMovement>();
         LifeCounterScript = GetComponent<LifeCount>();
+        SaveAni = GameObject.Find("SaveNewResetPos").GetComponent<Animator>();
     }
 
 
@@ -113,6 +116,13 @@ public class PlayerFellOff : MonoBehaviour
         {
             //Trigger Fall
             StartCoroutine(Fall(3, 6, x.gameObject));
+        }
+
+        //update reset position
+        else if (x.gameObject.tag == "Save Point")
+        {
+            startPos = x.gameObject.transform.position;
+            SaveAni.SetTrigger("SaveGame");
         }
 
         if (x.gameObject.tag == "FuelStation")
