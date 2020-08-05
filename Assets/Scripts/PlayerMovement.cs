@@ -46,6 +46,12 @@ public class PlayerMovement : MonoBehaviour
 
     public bool regenFuel = false;
 
+    //jump cutoff time
+    public float jumpDelayTime = 0.2f;
+
+    //can the player jump bool
+    public bool canIJump = true;
+    public bool haveIAlreadyJumped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -75,13 +81,14 @@ public class PlayerMovement : MonoBehaviour
         //jump & Jectpack
         if (Input.GetButtonDown("Jump"))
         {
-            if (IsGrounded())
+            if ( /* IsGrounded() || */ canIJump == true && haveIAlreadyJumped == false)
             {
                 FMODUnity.RuntimeManager.PlayOneShotAttached("event:/VoiceOvers/Jumping&Landing/Jump", this.gameObject);
                 jump = true;
+                StartCoroutine(jumpResetTime());
                 ani.SetBool("Jump", true);
             }
-            else if(IsGrounded() != true)
+            else if(IsGrounded() != true && canIJump == false)
             {
                 useJetpack = true;
 
@@ -200,6 +207,15 @@ public class PlayerMovement : MonoBehaviour
                 fuelRemaining = 0;
             }
             fuelBar.SetFuelLevel(fuelRemaining);
+
+            //check if player has already jumped
+            canIJump = true;
+
+        }
+        else
+        {
+            //check if the player was touching the floor recently
+            StartCoroutine(jumpDelay());
         }
     }
 
@@ -242,5 +258,20 @@ public class PlayerMovement : MonoBehaviour
         return raycastHit.collider != null;
     }
 
+    IEnumerator jumpDelay()
+    {
+        yield return new WaitForSeconds(jumpDelayTime);
+
+        if (!IsGrounded())
+        {
+            canIJump = false;
+        }            
+    }
+    IEnumerator jumpResetTime()
+    {
+        haveIAlreadyJumped = true;
+        yield return new WaitForSeconds(jumpDelayTime);
+        haveIAlreadyJumped = false;
+    }
 
 }
