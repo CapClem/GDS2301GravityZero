@@ -118,11 +118,12 @@ public class PlayerFellOff : MonoBehaviour
             StartCoroutine(Fall(3, 6, x.gameObject));
         }
 
-        //update reset position
+        //Reset position
         else if (x.gameObject.tag == "Save Point")
         {
             startPos = x.gameObject.transform.position;
             SaveAni.SetTrigger("SaveGame");
+            Destroy(x);
         }
 
         if (x.gameObject.tag == "FuelStation")

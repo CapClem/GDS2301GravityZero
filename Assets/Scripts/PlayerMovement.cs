@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     //is the player?
     private bool jump = false;
-    private bool crouch = false;
+    private bool crouching = false;
 
     public Collider2D boxCollider2D;
 
@@ -112,21 +112,25 @@ public class PlayerMovement : MonoBehaviour
         //crouch
         if (Input.GetButtonDown("Crouch"))
         {
-            crouch = true;
-            print("You are crouching");
-            ani.SetBool("Crouch", true);
+            //if we only want to crouch whilst on the ground
+            if (IsGrounded())
+            {
+                crouching = true;
+                print("You are crouching");
+            }
+            //ani.SetBool("Crouch", true);
         }
         else if (Input.GetButtonUp("Crouch"))
         {
-            crouch = false;
-            ani.SetBool("Crouch", false);
+            crouching = false;
+            //ani.SetBool("Crouch", false);
         }
         
     }
 
     void FixedUpdate()
     {
-        contoller.Move(horiontalMove * Time.fixedDeltaTime, crouch, jump);
+        contoller.Move(horiontalMove * Time.fixedDeltaTime, crouching, jump);
         jump = false;
         ani.SetBool("Jump", false);
 
