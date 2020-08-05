@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     //is the player?
     private bool jump = false;
-    private bool crouch = false;
+    private bool crouching = false;
 
     public Collider2D boxCollider2D;
 
@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public bool useJetpack = false;
     public ParticleSystem jetEffect;
+    public ParticleSystem jumpDust;
 
     public RaycastHit2D hit;
 
@@ -46,6 +47,12 @@ public class PlayerMovement : MonoBehaviour
 
     public bool regenFuel = false;
 
+    //jump cutoff time
+    public float jumpDelayTime = 0.2f;
+
+    //can the player jump bool
+    public bool canIJump = true;
+    public bool haveIAlreadyJumped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -75,13 +82,15 @@ public class PlayerMovement : MonoBehaviour
         //jump & Jectpack
         if (Input.GetButtonDown("Jump"))
         {
-            if (IsGrounded())
+            if ( /* IsGrounded() || */ canIJump == true && haveIAlreadyJumped == false)
             {
                 FMODUnity.RuntimeManager.PlayOneShotAttached("event:/VoiceOvers/Jumping&Landing/Jump", this.gameObject);
                 jump = true;
+                StartCoroutine(jumpResetTime());
                 ani.SetBool("Jump", true);
+                jumpDust.Play();
             }
-            else if(IsGrounded() != true)
+            else if(IsGrounded() != true && canIJump == false)
             {
                 useJetpack = true;
 
@@ -112,21 +121,25 @@ public class PlayerMovement : MonoBehaviour
         //crouch
         if (Input.GetButtonDown("Crouch"))
         {
-            crouch = true;
-            print("You are crouching");
-            ani.SetBool("Crouch", true);
+            //if we only want to crouch whilst on the ground
+            if (IsGrounded())
+            {
+                crouching = true;
+                print("You are crouching");
+            }
+            //ani.SetBool("Crouch", true);
         }
         else if (Input.GetButtonUp("Crouch"))
         {
-            crouch = false;
-            ani.SetBool("Crouch", false);
+            crouching = false;
+            //ani.SetBool("Crouch", false);
         }
         
     }
 
     void FixedUpdate()
     {
-        contoller.Move(horiontalMove * Time.fixedDeltaTime, crouch, jump);
+        contoller.Move(horiontalMove * Time.fixedDeltaTime, crouching, jump);
         jump = false;
         ani.SetBool("Jump", false);
 
@@ -196,6 +209,15 @@ public class PlayerMovement : MonoBehaviour
                 fuelRemaining = 0;
             }
             fuelBar.SetFuelLevel(fuelRemaining);
+
+            //check if player has already jumped
+            canIJump = true;
+
+        }
+        else
+        {
+            //check if the player was touching the floor recently
+            StartCoroutine(jumpDelay());
         }
     }
 
@@ -238,5 +260,20 @@ public class PlayerMovement : MonoBehaviour
         return raycastHit.collider != null;
     }
 
+    IEnumerator jumpDelay()
+    {
+        yield return new WaitForSeconds(jumpDelayTime);
+
+        if (!IsGrounded())
+        {
+            canIJump = false;
+        }            
+    }
+    IEnumerator jumpResetTime()
+    {
+        haveIAlreadyJumped = true;
+        yield return new WaitForSeconds(jumpDelayTime);
+        haveIAlreadyJumped = false;
+    }
 
 }

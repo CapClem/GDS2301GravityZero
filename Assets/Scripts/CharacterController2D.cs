@@ -33,8 +33,12 @@ public class CharacterController2D : MonoBehaviour
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
 
+    Animator ani;
+
     private void Awake()
     {
+
+        ani = this.GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
         if (OnLandEvent == null)
@@ -96,12 +100,14 @@ public class CharacterController2D : MonoBehaviour
                 // Disable one of the colliders when crouching
                 if (m_CrouchDisableCollider != null)
                     m_CrouchDisableCollider.enabled = false;
+                    ani.SetBool("Crouch", true);
             }
             else
             {
                 // Enable the collider when not crouching
                 if (m_CrouchDisableCollider != null)
                     m_CrouchDisableCollider.enabled = true;
+                    ani.SetBool("Crouch", false);
 
                 if (m_wasCrouching)
                 {
@@ -129,7 +135,7 @@ public class CharacterController2D : MonoBehaviour
             }
         }
         // If the player should jump...
-        if (m_Grounded && jump)
+        if ((m_Grounded && jump) || jump && this.GetComponent<PlayerMovement>().canIJump == true)
         {
             // Add a vertical force to the player.
             m_Grounded = false;

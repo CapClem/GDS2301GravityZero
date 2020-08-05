@@ -36,7 +36,7 @@ public class PlayerFellOff : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D x)
     {
         //reset player on colission
-        if (x.gameObject.tag == "boundry")
+        if (x.gameObject.tag == "boundry" || x.gameObject.tag == "Spikes")
         {
            this.transform.position = startPos;
            ridBody.velocity = new Vector3 (0,0,0);
@@ -118,11 +118,12 @@ public class PlayerFellOff : MonoBehaviour
             StartCoroutine(Fall(3, 6, x.gameObject));
         }
 
-        //update reset position
+        //Reset position
         else if (x.gameObject.tag == "Save Point")
         {
             startPos = x.gameObject.transform.position;
             SaveAni.SetTrigger("SaveGame");
+            Destroy(x);
         }
 
         if (x.gameObject.tag == "FuelStation")
