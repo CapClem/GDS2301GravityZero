@@ -20,8 +20,15 @@ public class PlayerFellOff : MonoBehaviour
 
     Animator SaveAni;
 
+    bool resetPlayer = false;
+    public float ResetTimer = 0.5f;
+
+    public GameObject fader;
+    Animator fadeAni;
+
     void Start()
     {
+        fadeAni = fader.GetComponent<Animator>();
         // set player possition for reset
         startPos = this.gameObject.transform.position;             
 
@@ -38,14 +45,7 @@ public class PlayerFellOff : MonoBehaviour
         //reset player on colission
         if (x.gameObject.tag == "boundry" || x.gameObject.tag == "Spikes")
         {
-           this.transform.position = startPos;
-           ridBody.velocity = new Vector3 (0,0,0);
-           playerController.m_UpRight = true; //Making sure the player isn't upside down
-           playerController.GravityFlip();
-
-           //reset Gravity
-           this.ridBody.gravityScale = normGravity;
-           LifeCounterScript.ChangeLifeImages(false, 1);
+            StartCoroutine(ResetPlayer(ResetTimer));
         }        
 
         //load next scene
@@ -152,6 +152,30 @@ public class PlayerFellOff : MonoBehaviour
         Destroy(z.GetComponent<Rigidbody2D>());
         z.transform.position = SPos;
         z.transform.rotation = rPos;
+    }
+    
+    //trigger player reset
+    IEnumerator ResetPlayer(float x)
+    {
+        if (resetPlayer == false)
+        {
+            //trigger fade out
+            fadeAni.SetTrigger("Start");
+            resetPlayer = true;
+
+            yield return new WaitForSeconds(x);
+            this.transform.position = startPos;
+            ridBody.velocity = new Vector3(0, 0, 0);
+            playerController.m_UpRight = true; //Making sure the player isn't upside down
+            playerController.GravityFlip();
+
+            //reset Gravity
+            this.ridBody.gravityScale = normGravity;
+            LifeCounterScript.ChangeLifeImages(false, 1);
+
+            resetPlayer = false;
+        }
+        
     }
 
     //if we need to dissable jetpack pickup
