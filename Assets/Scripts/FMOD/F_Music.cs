@@ -16,6 +16,7 @@ public class F_Music : MonoBehaviour
     private float parameterValue;
     void Start()
     {
+
         if (musicStarted == false)
         {
             mainTheme = RuntimeManager.CreateInstance("event:/Music/MusicDynamic");
