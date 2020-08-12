@@ -84,9 +84,22 @@ public class F_Player : MonoBehaviour
         {
             jetpackRe.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             rechargeActiv = false;
-        } 
+        }         
+    }
 
-        
-           
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Spikes")
+        {
+            RuntimeManager.PlayOneShot("event:/Player/DeathRocks", default);
+        }
+        if (collision.gameObject.tag == "boundry")
+        {
+            RuntimeManager.PlayOneShot("event:/Player/DeathAir", default);
+        }
+        if (collision.gameObject.tag == "Health")
+        {
+            RuntimeManager.PlayOneShot("event:/Collectables/Health", default);
+        }
     }
 }

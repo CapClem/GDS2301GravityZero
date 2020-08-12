@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
                 ani.SetBool("Jump", true);
                 jumpDust.Play();
             }
-            else if(IsGrounded() != true && canIJump == false)
+            else if(IsGrounded() != true && canIJump == false || IsGrounded() != true && haveIAlreadyJumped == true)
             {
                 useJetpack = true;
 
