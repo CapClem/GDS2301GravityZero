@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9006445121921675533}
   - component: {fileID: 1426546579086168551}
   - component: {fileID: 2558353432490228992}
+  - component: {fileID: 4277611257903277854}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Spikes
@@ -98,3 +99,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.5}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4277611257903277854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6544169491774486367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 637c9e53fa41f0441a24da79d15a7370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
