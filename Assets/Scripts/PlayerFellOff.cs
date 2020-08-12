@@ -144,6 +144,10 @@ public class PlayerFellOff : MonoBehaviour
         yield return new WaitForSeconds(fallTimer);
         
         Rigidbody2D y = z.AddComponent<Rigidbody2D>();
+        if (playerController.m_UpRight != true)
+        {
+            y.gravityScale = -1;
+        }
         y.constraints = RigidbodyConstraints2D.FreezeRotation;
         ani.Stop();
         yield return new WaitForSeconds(waitTime);
@@ -152,6 +156,8 @@ public class PlayerFellOff : MonoBehaviour
         Destroy(z.GetComponent<Rigidbody2D>());
         z.transform.position = SPos;
         z.transform.rotation = rPos;
+        //z.GetComponent<SpriteRenderer>().enabled = true;
+        //z.GetComponent<BoxCollider2D>().enabled = true;
     }
     
     //trigger player reset
