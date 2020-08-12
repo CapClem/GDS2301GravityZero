@@ -338,6 +338,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 906117458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &264236736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5891436053059943847, guid: e2a7e1cf589ab7d49b0045f69f667bb2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5891436052630347132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &264236737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264236736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124d7aa0ab27aa446a97899769a0df14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/Collision/MetalBridge
 --- !u!1001 &384039021
 PrefabInstance:
   m_ObjectHideFlags: 0

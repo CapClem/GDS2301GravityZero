@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using UnityEngine.Experimental.XR;
 
 public class F_Player : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class F_Player : MonoBehaviour
     {
         if (playerMov.hit.collider != null)
         {
-            if (playerMov.hit.collider.tag == "Metal")
+            if (playerMov.hit.collider.tag == "Metal" || playerMov.hit.collider.tag == "Bridge")
             {
                 walk.setParameterByName("Material", 1f, false);
             }
@@ -89,17 +90,19 @@ public class F_Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Spikes")
+
+        switch (collision.gameObject.tag)
         {
-            RuntimeManager.PlayOneShot("event:/Player/DeathRocks", default);
+            case "Spikes":
+                RuntimeManager.PlayOneShot("event:/Player/DeathRocks", default);
+                break;
+            case "boundry":
+                RuntimeManager.PlayOneShot("event:/Player/DeathAir", default);
+                break;
+            case "Health":
+                RuntimeManager.PlayOneShot("event:/Collectables/Health%", default);
+                break;
         }
-        if (collision.gameObject.tag == "boundry")
-        {
-            RuntimeManager.PlayOneShot("event:/Player/DeathAir", default);
-        }
-        if (collision.gameObject.tag == "Health")
-        {
-            RuntimeManager.PlayOneShot("event:/Collectables/Health", default);
-        }
+
     }
 }
