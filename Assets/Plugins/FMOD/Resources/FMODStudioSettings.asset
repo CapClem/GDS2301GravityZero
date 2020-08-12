@@ -83,6 +83,7 @@ MonoBehaviour:
   - Music
   - MusicAnimatic
   - Player
+  - Ui
   BanksToLoad:
   - 
   - 
