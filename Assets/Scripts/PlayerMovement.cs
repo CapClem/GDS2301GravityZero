@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     public bool haveIAlreadyJumped = false;
 
     bool walking = false;
-    public bool ShouldILandMyJump;
+    bool ShouldILandMyJump = false;
 
     // Start is called before the first frame update
     void Start()
