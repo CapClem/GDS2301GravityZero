@@ -100,7 +100,7 @@ public class F_Player : MonoBehaviour
                 RuntimeManager.PlayOneShot("event:/Player/DeathAir", default);
                 break;
             case "Health":
-                RuntimeManager.PlayOneShot("event:/Collectables/Health%", default);
+                RuntimeManager.PlayOneShot("event:/Collectables/Health", default);
                 break;
         }
 
