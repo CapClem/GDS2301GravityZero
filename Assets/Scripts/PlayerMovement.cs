@@ -54,6 +54,9 @@ public class PlayerMovement : MonoBehaviour
     public bool canIJump = true;
     public bool haveIAlreadyJumped = false;
 
+    bool walking = false;
+    public bool ShouldILandMyJump;
+
     // Start is called before the first frame update
     void Start()
     {        
@@ -67,16 +70,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
         horiontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
-            ani.SetBool("Walking", true);
+            if (walking == false)
+            {
+                walking = true;
+                ani.SetBool("Walking", true);
+                ani.SetTrigger("StartWalking");
+            }
+
         }
-        else
+        else if (Input.GetAxisRaw("Horizontal") == 0)
         {
-            ani.SetBool("Walking", false);
+            if (walking == true)
+            {
+                walking = false;
+                ani.SetBool("Walking", false);
+            }
         }
 
         //jump & Jectpack
@@ -87,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
                 FMODUnity.RuntimeManager.PlayOneShotAttached("event:/VoiceOvers/Jumping&Landing/Jump", this.gameObject);
                 jump = true;
                 StartCoroutine(jumpResetTime());
-                ani.SetBool("Jump", true);
+                ani.SetTrigger("Jump");
                 jumpDust.Play();
             }
             else if(IsGrounded() != true && canIJump == false || IsGrounded() != true && haveIAlreadyJumped == true)
@@ -141,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
     {
         contoller.Move(horiontalMove * Time.fixedDeltaTime, crouching, jump);
         jump = false;
-        ani.SetBool("Jump", false);
+
 
         //Dash Cooldown Timer
         if (abilityTimer <= 0)
@@ -212,11 +224,12 @@ public class PlayerMovement : MonoBehaviour
 
             //check if player has already jumped
             canIJump = true;
-
+            ani.SetBool("InAir", false);
         }
         else
         {
             //check if the player was touching the floor recently
+            ani.SetBool("InAir", true);
             StartCoroutine(jumpDelay());
         }
     }
@@ -247,10 +260,19 @@ public class PlayerMovement : MonoBehaviour
         if (raycastHit.collider != null)
         {
             rayColor = Color.green;
+            if (ShouldILandMyJump == true)
+            {
+                ani.SetTrigger("LandJump");
+                ShouldILandMyJump = false;
+            }
         }
         else
         {
             rayColor = Color.red;
+            if (ShouldILandMyJump == false)
+            {
+                StartCoroutine(landJump());
+            }    
         }
         
         Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
@@ -269,11 +291,19 @@ public class PlayerMovement : MonoBehaviour
             canIJump = false;
         }            
     }
-    IEnumerator jumpResetTime()
+    IEnumerator jumpResetTime() 
     {
-        haveIAlreadyJumped = true;
-        yield return new WaitForSeconds(jumpDelayTime);
-        haveIAlreadyJumped = false;
+        if (haveIAlreadyJumped != true)
+        {
+            yield return new WaitForSeconds(jumpDelayTime);
+            haveIAlreadyJumped = false;
+        }
+    }
+
+    IEnumerator landJump()
+    {
+         yield return new WaitForSeconds(0.2f);
+         ShouldILandMyJump = true;
     }
 
 }

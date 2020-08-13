@@ -34,6 +34,7 @@ public class CharacterController2D : MonoBehaviour
     private bool m_wasCrouching = false;
 
     Animator ani;
+    bool CrouchTrigger = false;
 
     private void Awake()
     {
@@ -100,14 +101,28 @@ public class CharacterController2D : MonoBehaviour
                 // Disable one of the colliders when crouching
                 if (m_CrouchDisableCollider != null)
                     m_CrouchDisableCollider.enabled = false;
-                    ani.SetBool("Crouch", true);
+                    
+                    if (CrouchTrigger == false)
+                    {
+                    ani.SetBool("Crouching", true);
+                    ani.SetTrigger("StartCrouching");
+                    CrouchTrigger = true;
+                    }        
             }
             else
             {
                 // Enable the collider when not crouching
                 if (m_CrouchDisableCollider != null)
                     m_CrouchDisableCollider.enabled = true;
-                    ani.SetBool("Crouch", false);
+                    
+                    
+                    if (CrouchTrigger == true)
+                    {
+                    ani.SetBool("Crouching", false);
+                    CrouchTrigger = false;
+                    }
+                
+                     
 
                 if (m_wasCrouching)
                 {
