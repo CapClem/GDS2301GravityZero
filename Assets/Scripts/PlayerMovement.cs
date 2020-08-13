@@ -55,7 +55,8 @@ public class PlayerMovement : MonoBehaviour
     public bool haveIAlreadyJumped = false;
 
     bool walking = false;
-    bool ShouldILandMyJump = false;
+    public bool ShouldILandMyJump = false;
+    bool checkLandJump = false;
 
     // Start is called before the first frame update
     void Start()
@@ -262,19 +263,25 @@ public class PlayerMovement : MonoBehaviour
             rayColor = Color.green;
             if (ShouldILandMyJump == true)
             {
-                ani.SetTrigger("LandJump");
                 ShouldILandMyJump = false;
+                ani.SetTrigger("LandJump");
+                StartCoroutine(landSlowdown());
             }
+            checkLandJump = true;
         }
         else
         {
             rayColor = Color.red;
             if (ShouldILandMyJump == false)
             {
-                StartCoroutine(landJump());
+                if (checkLandJump == true)
+                {
+                    StartCoroutine(landJump());
+                    checkLandJump = false;
+                }     
             }    
         }
-        
+
         Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
         Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
         Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, (boxCollider2D.bounds.extents.y + extraHeightText)*y), Vector2.right * 2 * (boxCollider2D.bounds.extents.x), rayColor);
@@ -303,8 +310,19 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator landJump()
     {
-         yield return new WaitForSeconds(0.2f);
+         yield return new WaitForSeconds(0.5f);
+         if(!IsGrounded())
+         {
          ShouldILandMyJump = true;
+         }   
+    }
+
+    IEnumerator landSlowdown()
+    {
+        float s = runSpeed;
+        runSpeed = 20;
+        yield return new WaitForSeconds(0.5f);
+        runSpeed = s;
     }
 
 }
