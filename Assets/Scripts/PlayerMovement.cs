@@ -295,6 +295,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (haveIAlreadyJumped != true)
         {
+            haveIAlreadyJumped = true;
             yield return new WaitForSeconds(jumpDelayTime);
             haveIAlreadyJumped = false;
         }
