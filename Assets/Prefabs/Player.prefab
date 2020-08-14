@@ -1203,6 +1203,7 @@ MonoBehaviour:
   jumpDelayTime: 0.2
   canIJump: 1
   haveIAlreadyJumped: 0
+  ShouldILandMyJump: 0
 --- !u!114 &3639213279711610129
 MonoBehaviour:
   m_ObjectHideFlags: 0

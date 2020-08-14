@@ -155,9 +155,13 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         landJumpTimer -= Time.fixedDeltaTime;
-        if(landJumpTimer < 0 && ShouldILandMyJump != true)
+        if(landJumpTimer < 0)
         {
             ShouldILandMyJump = true;
+        }
+        else
+        {
+            ShouldILandMyJump = false;
         }
 
 
@@ -272,6 +276,7 @@ public class PlayerMovement : MonoBehaviour
             rayColor = Color.green;
             if (ShouldILandMyJump == true)
             {
+                landJumpTimer = 0.5f;
                 ShouldILandMyJump = false;
                 ani.SetTrigger("LandJump");
                 StartCoroutine(landSlowdown());
