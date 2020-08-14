@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     public bool regenFuel = false;
 
     //jump cutoff time
-    public float jumpDelayTime = 0.2f;
+    public float jumpDelayTime = 0.20f;
 
     //can the player jump bool
     public bool canIJump = true;
@@ -59,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     bool checkLandJump = false;
 
     float landJumpTimer = 0.5f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -155,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         landJumpTimer -= Time.fixedDeltaTime;
-        if(landJumpTimer < 0)
+        if(landJumpTimer <= 0)
         {
             ShouldILandMyJump = true;
         }
