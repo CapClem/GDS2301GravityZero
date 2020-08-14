@@ -58,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
     public bool ShouldILandMyJump = false;
     bool checkLandJump = false;
 
+    float landJumpTimer = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {        
@@ -152,6 +154,13 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        landJumpTimer -= Time.fixedDeltaTime;
+        if(landJumpTimer < 0 && ShouldILandMyJump != true)
+        {
+            ShouldILandMyJump = true;
+        }
+
+
         contoller.Move(horiontalMove * Time.fixedDeltaTime, crouching, jump);
         jump = false;
 
@@ -267,19 +276,11 @@ public class PlayerMovement : MonoBehaviour
                 ani.SetTrigger("LandJump");
                 StartCoroutine(landSlowdown());
             }
-            checkLandJump = true;
+            landJumpTimer = 0.5f;
         }
         else
         {
             rayColor = Color.red;
-            if (ShouldILandMyJump == false)
-            {
-                if (checkLandJump == true)
-                {
-                    StartCoroutine(landJump());
-                    checkLandJump = false;
-                }     
-            }    
         }
 
         Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
@@ -308,15 +309,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator landJump()
-    {
-         yield return new WaitForSeconds(0.5f);
-         if(!IsGrounded())
-         {
-         ShouldILandMyJump = true;
-         }   
-    }
-
     IEnumerator landSlowdown()
     {
         float s = runSpeed;
@@ -326,3 +318,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
 }
+
+/*IEnumerator landJump()
+{
+     yield return new WaitForSeconds(0.5f);
+     if(!IsGrounded())
+     {
+     ShouldILandMyJump = true;
+     }   
+}*/
