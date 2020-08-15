@@ -7,7 +7,14 @@ using UnityEngine.SceneManagement;
 public class ButtonFunctions : MonoBehaviour
 {
     bool vidPlaying = false;
-    
+    Animator buttonsAni;
+    public GameObject buttons;
+
+    void Start()
+    {
+        buttonsAni = buttons.GetComponent<Animator>();
+    }
+
     void Update()
     {
         //reload scene
@@ -43,6 +50,10 @@ public class ButtonFunctions : MonoBehaviour
 
     public void StartIntro()
     {
+        buttonsAni.SetTrigger("LoadButtonsOut");
+        Animator y = this.GetComponent<Animator>();
+        y.SetBool("Start Video", true);
+
         GameObject x = GameObject.Find("Video Pannel");
         Animator ani = x.GetComponent<Animator>();
         ani.SetTrigger("Start Intro");
