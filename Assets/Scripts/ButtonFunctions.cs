@@ -32,7 +32,7 @@ public class ButtonFunctions : MonoBehaviour
             {
                 LoadGame();
             }
-            else if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "Controls" && SceneManager.GetActiveScene().name != "Contributions")
+            else if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "HowToPlay" && SceneManager.GetActiveScene().name != "Contributions")
             {
                 AniGameplayFader = GameObject.FindGameObjectWithTag("PlayerFade").GetComponent<Animator>();
                 AniGameplayButton = GameObject.FindGameObjectWithTag("PlayerButtons").GetComponent<Animator>();
@@ -86,12 +86,13 @@ public class ButtonFunctions : MonoBehaviour
 
     public void LoadControls()
     {
-        SceneManager.LoadScene("Controls", LoadSceneMode.Single);
+        SceneManager.LoadScene("HowToPlay", LoadSceneMode.Single);
     }
 
     public void LoadContributions()
     {
         SceneManager.LoadScene("Contributions", LoadSceneMode.Single);
+        Time.timeScale = 1;
     }
 
     public void ExitGame()
@@ -111,6 +112,7 @@ public class ButtonFunctions : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
     }
 
     IEnumerator pauseDelay()
@@ -121,5 +123,10 @@ public class ButtonFunctions : MonoBehaviour
             gamePaused = true;
             Time.timeScale = 0;
         }
+    }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
     }
 }

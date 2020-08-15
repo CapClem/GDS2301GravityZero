@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Controls.unity
+    path: Assets/Scenes/HowToPlay.unity
     guid: 2521f00c9a22c054cae50cb240048ae8
   - enabled: 1
     path: Assets/Scenes/Contributions.unity
     guid: bd4f84f6c57595c4caeece26cc819224
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 14cc55e0dbb0d9a41866cf81f926ed0f
   - enabled: 1
     path: Assets/Scenes/PauseScene.unity
     guid: 37b35bb6cecc988468900ef56e415964
