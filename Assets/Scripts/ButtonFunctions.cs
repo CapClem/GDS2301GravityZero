@@ -32,7 +32,7 @@ public class ButtonFunctions : MonoBehaviour
             {
                 LoadGame();
             }
-            else if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "HowToPlay" && SceneManager.GetActiveScene().name != "Contributions")
+            else if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "HowToPlay" && SceneManager.GetActiveScene().name != "Settings")
             {
                 AniGameplayFader = GameObject.FindGameObjectWithTag("PlayerFade").GetComponent<Animator>();
                 AniGameplayButton = GameObject.FindGameObjectWithTag("PlayerButtons").GetComponent<Animator>();
@@ -91,7 +91,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void LoadContributions()
     {
-        SceneManager.LoadScene("Contributions", LoadSceneMode.Single);
+        SceneManager.LoadScene("Settings", LoadSceneMode.Single);
         Time.timeScale = 1;
     }
 

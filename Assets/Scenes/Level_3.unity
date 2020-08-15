@@ -3166,7 +3166,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 6
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 29
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3364,7 +3364,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 28
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6332,15 +6332,13 @@ Tilemap:
   - m_RefCount: 83
     m_Data: {fileID: 5410054777802786097, guid: 531afd34467b6264682c94c84039e049,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -5139843021400058894, guid: 13dca75d6d957f34685c876f32f1c658,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 4976755706688276653, guid: 13dca75d6d957f34685c876f32f1c658,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 8860147491579571239, guid: 13dca75d6d957f34685c876f32f1c658,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
@@ -6392,10 +6390,12 @@ Tilemap:
       type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 951813595270581764, guid: 13dca75d6d957f34685c876f32f1c658, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -5139843021400058894, guid: 13dca75d6d957f34685c876f32f1c658,
+      type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 8860147491579571239, guid: 13dca75d6d957f34685c876f32f1c658,
+      type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1614511038521148045, guid: 13dca75d6d957f34685c876f32f1c658,
       type: 3}
@@ -7482,9 +7482,33 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9999992
       objectReference: {fileID: 0}
+    - target: {fileID: 682787738, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 682787738, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 682787738, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 704210392, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.31649327
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270725359, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270725359, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270725359, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1369643593, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7501,6 +7525,18 @@ PrefabInstance:
     - target: {fileID: 1606517719, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.99978137
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078121886, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078121886, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078121886, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 118143081211587982, guid: da059ee5e0914da49a454619562add14,
         type: 3}
