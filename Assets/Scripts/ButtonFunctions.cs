@@ -10,10 +10,10 @@ public class ButtonFunctions : MonoBehaviour
     Animator buttonsAni;
     public GameObject buttons;
 
-    void Start()
-    {
-        buttonsAni = buttons.GetComponent<Animator>();
-    }
+    bool gamePaused = false;
+
+    Animator AniGameplayButton;
+    Animator AniGameplayFader;
 
     void Update()
     {
@@ -32,15 +32,33 @@ public class ButtonFunctions : MonoBehaviour
             {
                 LoadGame();
             }
+            else if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "Controls" && SceneManager.GetActiveScene().name != "Contributions")
+            {
+                AniGameplayFader = GameObject.FindGameObjectWithTag("PlayerFade").GetComponent<Animator>();
+                AniGameplayButton = GameObject.FindGameObjectWithTag("PlayerButtons").GetComponent<Animator>();
+
+                if (gamePaused == false)
+                {
+                    AniGameplayButton.SetTrigger("FadeIn");
+                    AniGameplayFader.SetTrigger("FadeIn");
+                    AniGameplayButton.SetBool("FaderBool", true);
+                    AniGameplayFader.SetBool("FaderBool", true);
+
+                    StartCoroutine(pauseDelay());
+                }
+                else if (gamePaused == true)
+                {
+                    AniGameplayButton.SetBool("FaderBool",false);
+                    AniGameplayFader.SetBool("FaderBool", false);
+
+                    gamePaused = false;
+                    Time.timeScale = 1;                   
+                }   
+            }
             else if (SceneManager.GetActiveScene().name == "MainMenu" && vidPlaying == false)
             {
                 ExitGame();
             }
-            else if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "Controls" && SceneManager.GetActiveScene().name != "Contributions")
-            {
-                //ReturnToMainMenu();
-                LoadMainMenu();
-            }    
             else
             {
                 LoadMainMenu();
@@ -50,6 +68,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void StartIntro()
     {
+        buttonsAni = buttons.GetComponent<Animator>();
         buttonsAni.SetTrigger("LoadButtonsOut");
         Animator y = this.GetComponent<Animator>();
         y.SetBool("Start Video", true);
@@ -80,9 +99,13 @@ public class ButtonFunctions : MonoBehaviour
         Application.Quit();
     }
 
-    public void ReturnToMainMenu()
+    public void ResumeGame()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+        AniGameplayButton.SetBool("FaderBool", false);
+        AniGameplayFader.SetBool("FaderBool", false);
+
+        gamePaused = false;
+        Time.timeScale = 1;
     }
     
     public void LoadMainMenu()
@@ -90,4 +113,13 @@ public class ButtonFunctions : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    IEnumerator pauseDelay()
+    {
+
+        yield return new WaitForSeconds(.75f);
+        {
+            gamePaused = true;
+            Time.timeScale = 0;
+        }
+    }
 }
