@@ -33,12 +33,13 @@ public class ButtonFunctions : MonoBehaviour
                 LoadGame();
             }
             else if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "HowToPlay" && SceneManager.GetActiveScene().name != "Settings")
-            {
+            {              
                 AniGameplayFader = GameObject.FindGameObjectWithTag("PlayerFade").GetComponent<Animator>();
                 AniGameplayButton = GameObject.FindGameObjectWithTag("PlayerButtons").GetComponent<Animator>();
 
                 if (gamePaused == false)
                 {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Ui/MenuOpen", default);
                     AniGameplayButton.SetTrigger("FadeIn");
                     AniGameplayFader.SetTrigger("FadeIn");
                     AniGameplayButton.SetBool("FaderBool", true);
@@ -48,6 +49,7 @@ public class ButtonFunctions : MonoBehaviour
                 }
                 else if (gamePaused == true)
                 {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Ui/MenuOpen", default);
                     AniGameplayButton.SetBool("FaderBool",false);
                     AniGameplayFader.SetBool("FaderBool", false);
 
