@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public float startAbilityTimer = 5f;
     private bool dashActivatable = false;
     public ParticleSystem dashEffect;
+    private float origGrav;
 
     //Jetpack Fuelbar UI
     public int fuelRemaining;
@@ -47,8 +48,9 @@ public class PlayerMovement : MonoBehaviour
 
     public bool regenFuel = false;
 
-    //jump cutoff time
-    public float jumpDelayTime = 0.20f;
+    //Coyote time
+    private float jumpDelayTime = 0.20f;
+    private float dashDelayTime = 0.5f;
 
     //can the player jump bool
     public bool canIJump = true;
@@ -189,14 +191,18 @@ public class PlayerMovement : MonoBehaviour
                 dashActivatable = false; //Resetting the dash's activatability: Now the player can't use it again until it's activated by the cooldown
                 abilityTimer = startAbilityTimer;
                 dashEffect.Play();
+                origGrav = rb.gravityScale;
+                
 
                 if (contoller.m_FacingRight == true)
                 {
-                    rb.velocity = Vector3.right * dashSpeed; //DashRight 
+                    rb.velocity += Vector2.right * dashSpeed; //DashRight
+                    StartCoroutine(DashCoyoteTime(dashDelayTime, origGrav));
                 }
                 else if (contoller.m_FacingRight == false)
                 {
-                    rb.velocity = Vector3.left * dashSpeed; //DashLeft                    
+                    rb.velocity += Vector2.left * dashSpeed; //DashLeft       
+                    StartCoroutine(DashCoyoteTime(dashDelayTime, origGrav));
                 }
             }
         }
@@ -321,6 +327,15 @@ public class PlayerMovement : MonoBehaviour
         runSpeed = 20;
         yield return new WaitForSeconds(0.5f);
         runSpeed = s;
+    }
+
+    IEnumerator DashCoyoteTime(float time, float gScale)
+    {
+       // rb.velocity = new Vector3(0, 0, 0);
+        rb.gravityScale = 0;
+        yield return new WaitForSeconds(time);
+
+        rb.gravityScale = origGrav;
     }
 
 }
