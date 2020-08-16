@@ -17,6 +17,7 @@ public class PlayerFellOff : MonoBehaviour
     public CharacterController2D playerController;
     public PlayerMovement movementScript;
     public LifeCount LifeCounterScript;
+    public BreakPlatform breakPlatformScript;
 
     Animator SaveAni;
 
@@ -112,10 +113,20 @@ public class PlayerFellOff : MonoBehaviour
             LifeCounterScript.ChangeLifeImages(true, 1);
             Destroy(x.gameObject);
         }
-        else if (x.gameObject.tag == "FallAble")
+        
+        if (x.gameObject.tag == "FallAble")
         {
             //Trigger Fall
             StartCoroutine(Fall(3, 6, x.gameObject));
+        }
+        else if(x.gameObject.tag == "Bridge")
+        {
+            x.GetComponent<Animator>().SetTrigger("PlayerCollided");
+            Rigidbody2D y = x.gameObject.AddComponent<Rigidbody2D>();
+            if (y != null)
+            {
+                y.gravityScale = 3;
+            }
         }
 
         //Reset position
@@ -150,14 +161,16 @@ public class PlayerFellOff : MonoBehaviour
         }
         y.constraints = RigidbodyConstraints2D.FreezeRotation;
         ani.Stop();
+        z.GetComponent<BreakPlatform>().iFell = true;
+
         yield return new WaitForSeconds(waitTime);
 
         //Reset
+        z.GetComponent<BreakPlatform>().iFell = false;
         Destroy(z.GetComponent<Rigidbody2D>());
+
         z.transform.position = SPos;
         z.transform.rotation = rPos;
-        //z.GetComponent<SpriteRenderer>().enabled = true;
-        //z.GetComponent<BoxCollider2D>().enabled = true;
     }
     
     //trigger player reset

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4094023197439946683}
   - component: {fileID: 4094023197439946686}
   - component: {fileID: 386531548}
+  - component: {fileID: 8138662312607885294}
   m_Layer: 8
   m_Name: FallAbleObject
   m_TagString: FallAble
@@ -152,3 +153,16 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &8138662312607885294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094023197439946682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733d6e3bd16a6064c8e9fc38fc8fed48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iFell: 0
