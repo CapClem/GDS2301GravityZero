@@ -52,7 +52,14 @@ public class PlayerFellOff : MonoBehaviour
         //load next scene
         if (x.gameObject.tag == "LevelEndpoint")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (SceneManager.GetActiveScene().name == "Level_3")
+            {
+                SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
 
         //Change gravity
