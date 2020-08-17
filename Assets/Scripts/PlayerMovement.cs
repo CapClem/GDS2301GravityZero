@@ -111,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
             else if(IsGrounded() != true && canIJump == false || IsGrounded() != true && haveIAlreadyJumped == true)
             {
                 useJetpack = true;
+                ani.SetBool("UsingJetpack", true);
 
                 startGravity = rb.gravityScale;
                
@@ -131,7 +132,8 @@ public class PlayerMovement : MonoBehaviour
             if (useJetpack == true)
             {
                 rb.gravityScale = startGravity;
-                useJetpack = false;            
+                useJetpack = false;
+                ani.SetBool("UsingJetpack", false);
             }
                 jetEffect.Stop();            
         }
@@ -283,9 +285,9 @@ public class PlayerMovement : MonoBehaviour
             rayColor = Color.green;
             if (ShouldILandMyJump == true)
             {
+                ani.SetTrigger("LandJump");
                 landJumpTimer = 0.5f;
                 ShouldILandMyJump = false;
-                ani.SetTrigger("LandJump");
                 StartCoroutine(landSlowdown());
             }
             landJumpTimer = 0.5f;
