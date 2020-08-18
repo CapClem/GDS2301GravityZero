@@ -8,13 +8,24 @@ public class F_Ui : MonoBehaviour
 {
 
     EventInstance hover;
+
+    bool animaticStarted;
+
+    private void Start()
+    {
+        animaticStarted = false;
+    }
     public void OnClick()
     {
         RuntimeManager.PlayOneShot("event:/Ui/ButtonPress", default);
     }
     public void OnclickStart()
     {
-        RuntimeManager.PlayOneShot("event:/Ui/ButtonPressStart", default);
+        if (animaticStarted == false)
+        {
+            RuntimeManager.PlayOneShot("event:/Ui/ButtonPressStart", default);
+            animaticStarted = true;
+        }
     }
     public void OnHover()
     {

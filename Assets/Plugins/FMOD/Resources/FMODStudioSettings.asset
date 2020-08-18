@@ -80,8 +80,10 @@ MonoBehaviour:
   - Environment
   - Level1VoiceOver
   - Level2VoiceOver
+  - Level3VoiceOver
   - Music
   - MusicAnimatic
+  - Outro
   - Player
   - Ui
   BanksToLoad:

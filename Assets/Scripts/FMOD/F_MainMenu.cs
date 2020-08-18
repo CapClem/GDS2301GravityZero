@@ -10,8 +10,12 @@ public class F_MainMenu : MonoBehaviour
     public EventInstance menuMusic;
 
     public static EventInstance animaticMusic;
+
+    public bool animaticStarted;
     void Start()
     {
+        animaticStarted = false;
+
         menuMusic = RuntimeManager.CreateInstance("event:/Music/MainMenu");
         menuMusic.start();
         menuMusic.release();    
@@ -19,7 +23,11 @@ public class F_MainMenu : MonoBehaviour
 
     public void PlayAnimatic()
     {
-        StartCoroutine(AnimaticMusicStart());
+        if (animaticStarted == false)
+        {
+            StartCoroutine(AnimaticMusicStart());
+            animaticStarted = true;
+        }
     }
     IEnumerator AnimaticMusicStart()
     {
