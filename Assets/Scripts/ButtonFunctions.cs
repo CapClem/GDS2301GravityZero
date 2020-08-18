@@ -30,6 +30,7 @@ public class ButtonFunctions : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "MainMenu" && vidPlaying == true)
             {
+                F_MainMenu.animaticMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 LoadGame();
             }
             else if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "HowToPlay" && SceneManager.GetActiveScene().name != "Settings" && SceneManager.GetActiveScene().name != "Credits")
