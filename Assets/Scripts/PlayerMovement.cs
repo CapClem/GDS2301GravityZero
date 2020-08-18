@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
             else if(IsGrounded() != true && canIJump == false || IsGrounded() != true && haveIAlreadyJumped == true)
             {
                 useJetpack = true;
-                ani.SetBool("UsingJetpack", true);
+                
 
                 startGravity = rb.gravityScale;
                
@@ -132,10 +132,10 @@ public class PlayerMovement : MonoBehaviour
             if (useJetpack == true)
             {
                 rb.gravityScale = startGravity;
-                useJetpack = false;
-                ani.SetBool("UsingJetpack", false);
+                useJetpack = false;                
             }
-                jetEffect.Stop();            
+            jetEffect.Stop();
+            ani.SetBool("UsingJetpack", false);
         }
 
         //crouch
@@ -224,6 +224,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(Vector3.up * propelSpeed * transform.localScale.y);
                 fuelRemaining += fuelDrain;
                 jetEffect.Play();
+                ani.SetBool("UsingJetpack", true);
             }
 
             fuelBar.SetFuelLevel(fuelRemaining);
