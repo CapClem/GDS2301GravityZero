@@ -590,7 +590,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1342171980}
-  - component: {fileID: 1342171979}
   - component: {fileID: 1342171978}
   - component: {fileID: 1342171977}
   m_Layer: 0
@@ -609,7 +608,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1342171976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9baed501a78fa443ac878c943aaad80, type: 3}
+  m_Script: {fileID: 11500000, guid: b77de53e7c9aa9648b5908a3569a69e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1342171978
@@ -628,23 +627,10 @@ MonoBehaviour:
   UnloadEvent: 0
   Banks:
   - Master.strings
-  - MusicAnimatic
   - Master
+  - Outro
   CollisionTag: 
   PreloadSamples: 0
---- !u!114 &1342171979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342171976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 780060a6731665641ae8f5a722de670b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animaticStarted: 0
 --- !u!4 &1342171980
 Transform:
   m_ObjectHideFlags: 0
