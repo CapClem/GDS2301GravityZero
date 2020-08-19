@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1630,6 +1630,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &508709566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2007219922, guid: da059ee5e0914da49a454619562add14,
+    type: 3}
+  m_PrefabInstance: {fileID: 1835777164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9baed501a78fa443ac878c943aaad80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &525200779
 GameObject:
   m_ObjectHideFlags: 0
@@ -12207,15 +12219,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 205676953, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_Delegates.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 205676953, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1596590318}
+      objectReference: {fileID: 508709566}
     - target: {fileID: 205676953, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadMainMenu
+      value: OnHover2
       objectReference: {fileID: 0}
     - target: {fileID: 682787738, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_AnchorMin.y
@@ -12231,7 +12243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 682787739, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 682787739, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -12241,6 +12253,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1596590318}
+    - target: {fileID: 682787739, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 508709566}
+    - target: {fileID: 682787739, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 682787739, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 704210392, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.31649327
@@ -12251,19 +12275,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1005062433, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1005062433, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_Delegates.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1005062433, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1596590318}
+      objectReference: {fileID: 508709566}
     - target: {fileID: 1005062433, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadControls
+      value: OnHover2
       objectReference: {fileID: 0}
     - target: {fileID: 1270725359, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_AnchorMin.y
@@ -12279,7 +12303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1270725360, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1270725360, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -12289,17 +12313,29 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1596590318}
+    - target: {fileID: 1270725360, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 508709566}
+    - target: {fileID: 1270725360, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270725360, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1322318447, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_Delegates.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1322318447, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1596590318}
+      objectReference: {fileID: 508709566}
     - target: {fileID: 1322318447, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
+      value: OnHover2
       objectReference: {fileID: 0}
     - target: {fileID: 1369643593, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_LocalRotation.z
@@ -12331,7 +12367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2078121887, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2078121887, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -12341,6 +12377,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1596590318}
+    - target: {fileID: 2078121887, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 508709566}
+    - target: {fileID: 2078121887, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2078121887, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 118143081211587982, guid: da059ee5e0914da49a454619562add14,
         type: 3}
       propertyPath: m_LocalRotation.z
