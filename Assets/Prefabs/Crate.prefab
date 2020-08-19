@@ -184,4 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124d7aa0ab27aa446a97899769a0df14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath: 
+  eventPath: event:/Collision/Box
