@@ -27,9 +27,13 @@ public class PlayerFellOff : MonoBehaviour
     public GameObject fader;
     Animator fadeAni;
 
+    public GameObject fader2;
+    Animator fadeAni2;
+
     void Start()
     {
         fadeAni = fader.GetComponent<Animator>();
+        fadeAni2 = fader2.GetComponent<Animator>();
         // set player possition for reset
         startPos = this.gameObject.transform.position;             
 
@@ -58,7 +62,7 @@ public class PlayerFellOff : MonoBehaviour
             }
             //else
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                StartCoroutine(fadeout());
             }
         }
 
@@ -202,6 +206,13 @@ public class PlayerFellOff : MonoBehaviour
             resetPlayer = false;
         }
         
+    }
+
+    IEnumerator fadeout() 
+    {
+        fadeAni2.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     //if we need to dissable jetpack pickup
