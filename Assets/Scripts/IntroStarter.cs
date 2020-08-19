@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroStarter : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class IntroStarter : MonoBehaviour
     void Start()
     {
         ani = this.GetComponent<Animator>();
+
+        if (SceneManager.GetActiveScene().name == "EndScene")
+        {
+            StartCoroutine(startVid());
+        }
     }
 
     // Update is called once per frame
@@ -46,4 +52,11 @@ public class IntroStarter : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         canvas.GetComponent<ButtonFunctions>().LoadGame();
     }
+
+    IEnumerator startVid()
+    {
+        yield return new WaitForSeconds(0.5f);
+        PlayVideo();
+    }
+
 }

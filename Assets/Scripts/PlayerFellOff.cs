@@ -52,11 +52,11 @@ public class PlayerFellOff : MonoBehaviour
         //load next scene
         if (x.gameObject.tag == "LevelEndpoint")
         {
-            if (SceneManager.GetActiveScene().name == "Level_3")
+            //if (SceneManager.GetActiveScene().name == "Level_3")
             {
-                SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+                //SceneManager.LoadScene("Credits", LoadSceneMode.Single);
             }
-            else
+            //else
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }

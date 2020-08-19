@@ -84,7 +84,14 @@ public class ButtonFunctions : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Level_1", LoadSceneMode.Single);
+        if(SceneManager.GetActiveScene().name == "EndScene")
+        {
+            SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+        }
+        else
+        {
+            SceneManager.LoadScene("Level_1", LoadSceneMode.Single);
+        }
     }
 
     public void LoadControls()
