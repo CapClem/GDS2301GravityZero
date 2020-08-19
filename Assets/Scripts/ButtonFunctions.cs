@@ -33,7 +33,7 @@ public class ButtonFunctions : MonoBehaviour
                 F_MainMenu.animaticMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 LoadGame();
             }
-            else if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "HowToPlay" && SceneManager.GetActiveScene().name != "Settings" && SceneManager.GetActiveScene().name != "Credits")
+            else if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "HowToPlay" && SceneManager.GetActiveScene().name != "Settings" && SceneManager.GetActiveScene().name != "Credits" && SceneManager.GetActiveScene().name != "EndScene")
             {              
                 AniGameplayFader = GameObject.FindGameObjectWithTag("PlayerFade").GetComponent<Animator>();
                 AniGameplayButton = GameObject.FindGameObjectWithTag("PlayerButtons").GetComponent<Animator>();
@@ -62,6 +62,10 @@ public class ButtonFunctions : MonoBehaviour
             {
                 ExitGame();
             }
+            else if (SceneManager.GetActiveScene().name == "EndScene")
+            {
+                LoadCredits();
+            }
             else
             {
                 LoadMainMenu();
@@ -84,7 +88,14 @@ public class ButtonFunctions : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Level_1", LoadSceneMode.Single);
+        if(SceneManager.GetActiveScene().name == "EndScene")
+        {
+            SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+        }
+        else
+        {
+            SceneManager.LoadScene("Level_1", LoadSceneMode.Single);
+        }
     }
 
     public void LoadControls()
