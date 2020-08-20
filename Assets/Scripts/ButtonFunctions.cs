@@ -14,7 +14,6 @@ public class ButtonFunctions : MonoBehaviour
 
     Animator AniGameplayButton;
     Animator AniGameplayFader;
-
     void Update()
     {
         //reload scene

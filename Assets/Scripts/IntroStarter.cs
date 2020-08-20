@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMOD.Studio;
+using FMODUnity;
 
 public class IntroStarter : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class IntroStarter : MonoBehaviour
     public float waitTime;
     public Canvas canvas;
 
-
+    EventInstance outro;
         
     // Start is called before the first frame update
     void Start()
@@ -57,6 +59,9 @@ public class IntroStarter : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         PlayVideo();
+        outro = RuntimeManager.CreateInstance("event:/Music/OutroAnimatic");
+        outro.start();
+        outro.release();
     }
 
 }

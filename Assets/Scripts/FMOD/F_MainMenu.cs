@@ -8,9 +8,7 @@ using UnityEditor;
 public class F_MainMenu : MonoBehaviour
 {
     public EventInstance menuMusic;
-
     public static EventInstance animaticMusic;
-
     public bool animaticStarted;
     void Start()
     {
@@ -36,5 +34,6 @@ public class F_MainMenu : MonoBehaviour
         animaticMusic = RuntimeManager.CreateInstance("event:/Music/Animatic");
         animaticMusic.start();
         animaticMusic.release();
+
     }
 }
