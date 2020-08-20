@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
-using UnityEngine.Experimental.XR;
 
 public class F_Player : MonoBehaviour
 {
