@@ -56,6 +56,7 @@ public class LifeCount : MonoBehaviour
                 // check if player has died
                 if (lives.Count == 0)
                 {
+                    F_Music.mainTheme.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                     print("You Lose the game");
                     changeSceneControler.LoadMainMenu();
                 }
