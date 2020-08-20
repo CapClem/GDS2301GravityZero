@@ -25,6 +25,7 @@ TagManager:
   - Spikes
   - PlayerFade
   - PlayerButtons
+  - PlayerControls
   layers:
   - Default
   - TransparentFX

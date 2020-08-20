@@ -14,6 +14,8 @@ public class ButtonFunctions : MonoBehaviour
 
     Animator AniGameplayButton;
     Animator AniGameplayFader;
+    Animator AniHowToPlay;
+
     void Update()
     {
         //reload scene
@@ -36,6 +38,7 @@ public class ButtonFunctions : MonoBehaviour
             {              
                 AniGameplayFader = GameObject.FindGameObjectWithTag("PlayerFade").GetComponent<Animator>();
                 AniGameplayButton = GameObject.FindGameObjectWithTag("PlayerButtons").GetComponent<Animator>();
+                AniHowToPlay = GameObject.FindGameObjectWithTag("PlayerControls").GetComponent<Animator>();
 
                 if (gamePaused == false)
                 {
@@ -85,6 +88,18 @@ public class ButtonFunctions : MonoBehaviour
         vidPlaying = true;
     }
 
+    public void InGameControls()
+    {
+        if (AniHowToPlay.GetBool("HowToPlay") == false)
+        {
+            AniHowToPlay.SetBool("HowToPlay", true);
+        }
+        else
+        {
+            AniHowToPlay.SetBool("HowToPlay", false);
+        }
+    }
+
     public void LoadGame()
     {
         if(SceneManager.GetActiveScene().name == "EndScene")
@@ -120,6 +135,8 @@ public class ButtonFunctions : MonoBehaviour
 
         gamePaused = false;
         Time.timeScale = 1;
+
+        AniHowToPlay.SetBool("HowToPlay", false);
     }
     
     public void LoadMainMenu()
