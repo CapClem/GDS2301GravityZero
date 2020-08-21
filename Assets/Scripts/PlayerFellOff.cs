@@ -69,7 +69,7 @@ public class PlayerFellOff : MonoBehaviour
         //Change gravity
         if (x.gameObject.tag == "LowGravity")
         {
-            changeGravityScale(lowGravity,1);
+            changeGravityScale(lowGravity, 1);
             playerController.m_UpRight = true;
                         
             playerController.GravityFlip();
@@ -228,14 +228,15 @@ public class PlayerFellOff : MonoBehaviour
     //Conrtols gravity changes wilst using the jetpack 
     void changeGravityScale(float gravScale, float posOrNeg)
     {
+        movementScript.startGravity = gravScale * posOrNeg;
+
         if (movementScript.useJetpack == true)
         {
             ridBody.gravityScale = normGravity * posOrNeg;
-            movementScript.startGravity = gravScale * posOrNeg;
         }
         else
         {
-            ridBody.gravityScale = gravScale * posOrNeg;
+            ridBody.gravityScale = movementScript.startGravity;
         }        
     }
 }

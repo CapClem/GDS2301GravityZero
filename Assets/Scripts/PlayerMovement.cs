@@ -111,10 +111,10 @@ public class PlayerMovement : MonoBehaviour
             else if(IsGrounded() != true && canIJump == false || IsGrounded() != true && haveIAlreadyJumped == true)
             {
                 useJetpack = true;
-                
+
 
                 startGravity = rb.gravityScale;
-               
+
                 rb.gravityScale = 1f;
 
                 //Add initial fuel boost
