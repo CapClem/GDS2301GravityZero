@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -766,9 +766,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<b>Project Manager</b>\r\n\t- Jacob Clements\r\n\r\n<b>Game Designers\r</b>\n\t-
-    Karl Eyre\n\n\t- Natasha Shabir\r\n\n<b>Animators\r\r</b>\n\t- Summah McKnight\r\n\r\n\t-
-    Christy Veronica\r\n\r\n\t- Sidartha Dipayhana\r\n\r"
+  m_Text: "<b>Game Designers\r</b>\n\t\n\tKarl Eyre\n\n\tNatasha Shabir\r\n\n\tJacob
+    Clements\n\n<b>Animators\r\r</b>\n\t\n\tSummah McKnight\r\n\r\n\tChristy Veronica\r\n\r\n\tSidartha
+    Dipayhana\n\n\tNathan\r Waters\n\r"
 --- !u!222 &792640354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -776,6 +776,80 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792640351}
+  m_CullTransparentMesh: 0
+--- !u!1 &947496231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 947496232}
+  - component: {fileID: 947496234}
+  - component: {fileID: 947496233}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &947496232
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947496231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2044955850}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -54, y: -54}
+  m_SizeDelta: {x: 625, y: 300}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &947496233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947496231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6c1e7c2319ef8544585dc06b08f07350, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &947496234
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947496231}
   m_CullTransparentMesh: 0
 --- !u!1 &996636279
 GameObject:
@@ -818,7 +892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 530, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 551.3312, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!95 &996636281
@@ -1375,7 +1449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1253257773
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1392,7 +1466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -218, y: -92}
+  m_AnchoredPosition: {x: -50, y: -30}
   m_SizeDelta: {x: 617.2291, y: 87.902405}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1253257774
@@ -1831,9 +1905,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<b>Audio\r</b>\n\t- Kyan Rowse\r\n\n\r\t- Nyle Gibbons\r\n\r\n<b>Graphic
-    Designers\r</b>\n\t- Desiree Andrews\r\n\n\r\t- Molly Aird\r\n\n\r\t- Mytharia
-    Johnston"
+  m_Text: "<b>Audio\r</b>\n\t\n\tSound Designer\n\tKyan Rowse\r\n\r\n\tComposer\r\n\tNyle
+    Gibbens\r\n\r\n\tAssistant Engineer\r\n\tEric Tse\n\n<b>Graphic Designers\r</b>\n\n\tDesiree
+    Andrews\r\n\n\r\tMolly Aird\r\n\n\r\tMytharia Johnston"
 --- !u!222 &1609981651
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2211,10 +2285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 128
+  m_ScaleFactor: 2
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2230,8 +2304,8 @@ Canvas:
   m_GameObject: {fileID: 2044955846}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1012529683}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2258,6 +2332,7 @@ RectTransform:
   - {fileID: 1253257773}
   - {fileID: 996636280}
   - {fileID: 1826852235}
+  - {fileID: 947496232}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2316,8 +2391,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -92, y: -118}
-  m_SizeDelta: {x: -320.47107, y: -284.02686}
+  m_AnchoredPosition: {x: -245, y: -61}
+  m_SizeDelta: {x: -549, y: -330}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2059872604
 MonoBehaviour:

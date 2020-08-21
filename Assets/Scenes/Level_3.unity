@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2541,6 +2541,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewSavePoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5440795814895258748, guid: abb9b16b070625140a62b1dead376144,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 5440795814895258749, guid: abb9b16b070625140a62b1dead376144,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2549,7 +2554,7 @@ PrefabInstance:
     - target: {fileID: 5440795814895258749, guid: abb9b16b070625140a62b1dead376144,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8
+      value: -7.6
       objectReference: {fileID: 0}
     - target: {fileID: 5440795814895258749, guid: abb9b16b070625140a62b1dead376144,
         type: 3}
@@ -12297,7 +12302,7 @@ PrefabInstance:
     - target: {fileID: 5440795814895258748, guid: abb9b16b070625140a62b1dead376144,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.2
+      value: -0.28
       objectReference: {fileID: 0}
     - target: {fileID: 5440795814895258748, guid: abb9b16b070625140a62b1dead376144,
         type: 3}
@@ -12312,7 +12317,7 @@ PrefabInstance:
     - target: {fileID: 5440795814895258749, guid: abb9b16b070625140a62b1dead376144,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.75
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 5440795814895258749, guid: abb9b16b070625140a62b1dead376144,
         type: 3}
@@ -12745,6 +12750,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: {fileID: 0}
+--- !u!20 &1596590319 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 577777376296102562, guid: ac4aa05aca506bb4f8ae67f2d862daff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1596590316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1632977997
 GameObject:
   m_ObjectHideFlags: 0
@@ -13174,6 +13185,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 375072177, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -70
+      objectReference: {fileID: 0}
     - target: {fileID: 682787738, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -13252,6 +13267,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9662471
       objectReference: {fileID: 0}
+    - target: {fileID: 3639213279593335806, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1596590319}
     - target: {fileID: 3639213279650519520, guid: da059ee5e0914da49a454619562add14,
         type: 3}
       propertyPath: m_AnchorMin.y
