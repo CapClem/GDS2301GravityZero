@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FMOD;
 using FMODUnity;
 using FMOD.Studio;
 using System.Diagnostics.Contracts;
@@ -18,7 +17,7 @@ public class F_Music : MonoBehaviour
     private float parameterValue;
     void Start()
     {
-
+       
         if (musicStarted == false)
         {
             mainTheme = RuntimeManager.CreateInstance("event:/Music/MusicDynamic");
@@ -28,12 +27,15 @@ public class F_Music : MonoBehaviour
         }   
     }
 
+    private void Update()
+    {
+        Debug.Log(musicStarted);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             mainTheme.setParameterByName("VerseChange", parameterValue, false);
         }
-
     }
 }
