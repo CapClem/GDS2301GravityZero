@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public Collider2D boxCollider2D;
 
     private Animator ani;
+    
+
 
     //Jet Hover Variables
     public float propelSpeed = 30f;
@@ -193,18 +195,29 @@ public class PlayerMovement : MonoBehaviour
                 dashActivatable = false; //Resetting the dash's activatability: Now the player can't use it again until it's activated by the cooldown
                 abilityTimer = startAbilityTimer;
                 dashEffect.Play();
-                origGrav = rb.gravityScale;
-                
+                Vector2 myVelocity = rb.velocity;
 
                 if (contoller.m_FacingRight == true)
                 {
-                    rb.velocity += Vector2.right * dashSpeed; //DashRight
-                    StartCoroutine(DashCoyoteTime(dashDelayTime, origGrav));
+                    if (myVelocity.x < 0)
+                    {
+                        rb.velocity = new Vector3(1, 0.5f, 0);
+                        myVelocity = rb.velocity;
+                    }
+
+                   myVelocity += Vector2.right * dashSpeed; //DashRight
+                    StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
                 }
                 else if (contoller.m_FacingRight == false)
                 {
-                    rb.velocity += Vector2.left * dashSpeed; //DashLeft       
-                    StartCoroutine(DashCoyoteTime(dashDelayTime, origGrav));
+                    if (rb.velocity.x > 0)
+                    {
+                        rb.velocity = new Vector3(-1, 0.5f, 0);
+                        myVelocity = rb.velocity;
+                    }
+
+                    myVelocity += Vector2.left * dashSpeed; //DashLeft       
+                    StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
                 }
             }
         }
@@ -332,13 +345,12 @@ public class PlayerMovement : MonoBehaviour
         runSpeed = s;
     }
 
-    IEnumerator DashCoyoteTime(float time, float gScale)
-    {
-       // rb.velocity = new Vector3(0, 0, 0);
-        rb.gravityScale = 0;
+    IEnumerator DashCoyoteTime(float time, Vector3 yVelocity)
+    {     
+        rb.velocity = yVelocity;
         yield return new WaitForSeconds(time);
-
-        rb.gravityScale = origGrav;
+         yVelocity.y -= 1 * Time.deltaTime;
+      //  rb.velocity = yVelocity;
     }
 
 }

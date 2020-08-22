@@ -13,11 +13,11 @@ public class PlayerFellOff : MonoBehaviour
     public float lowGravity = 1f;
     public float normGravity = 1.45f;
     public float HighGravity = 2.5f;
+    public Animator gravityAni;
 
     public CharacterController2D playerController;
     public PlayerMovement movementScript;
-    public LifeCount LifeCounterScript;
-    public BreakPlatform breakPlatformScript;
+    public LifeCount LifeCounterScript;   
 
     Animator SaveAni;
 
@@ -48,13 +48,17 @@ public class PlayerFellOff : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D x)
     {
         //reset player on colission
-        if (x.gameObject.tag == "boundry" || x.gameObject.tag == "Spikes")
+        if (x.gameObject.tag == "boundry")
         {
             StartCoroutine(ResetPlayer(ResetTimer));
-        }        
+        }   
+        else if (x.gameObject.tag == "Spikes")
+        {
+            StartCoroutine(ResetPlayer(ResetTimer));
+        }
 
         //load next scene
-        if (x.gameObject.tag == "LevelEndpoint")
+            if (x.gameObject.tag == "LevelEndpoint")
         {
             //if (SceneManager.GetActiveScene().name == "Level_3")
             {
@@ -69,7 +73,9 @@ public class PlayerFellOff : MonoBehaviour
         //Change gravity
         if (x.gameObject.tag == "LowGravity")
         {
-            changeGravityScale(lowGravity, 1);
+            SetGravityAniParameters(true, false, false);
+
+            ChangeGravityScale(lowGravity, 1);
             playerController.m_UpRight = true;
                         
             playerController.GravityFlip();
@@ -78,7 +84,9 @@ public class PlayerFellOff : MonoBehaviour
         }
         else if (x.gameObject.tag == "NormGravity")
         {
-            changeGravityScale(normGravity, 1);
+            SetGravityAniParameters(false, true, false);
+
+            ChangeGravityScale(normGravity, 1);
             playerController.m_UpRight = true;
 
             playerController.GravityFlip();
@@ -87,7 +95,9 @@ public class PlayerFellOff : MonoBehaviour
         }
         else if (x.gameObject.tag == "HighGravity")
         {
-            changeGravityScale(HighGravity, 1);
+            SetGravityAniParameters(false, false, true);
+
+            ChangeGravityScale(HighGravity, 1);
             playerController.m_UpRight = true;
 
             playerController.GravityFlip();
@@ -97,7 +107,9 @@ public class PlayerFellOff : MonoBehaviour
         //Gravity flip collisions to flip the player upside down
         else if (x.gameObject.tag == "LowGravityFlip")
         {
-            changeGravityScale(lowGravity, -1);
+            SetGravityAniParameters(true, false, false);
+
+            ChangeGravityScale(lowGravity, -1);
             playerController.m_UpRight = false;
 
             playerController.GravityFlip();
@@ -105,7 +117,9 @@ public class PlayerFellOff : MonoBehaviour
         }
         else if (x.gameObject.tag == "NormGravityFlip")
         {
-            changeGravityScale(normGravity, -1);
+            SetGravityAniParameters(false, true, false);
+
+            ChangeGravityScale(normGravity, -1);
             playerController.m_UpRight = false;
 
             playerController.GravityFlip();
@@ -113,23 +127,27 @@ public class PlayerFellOff : MonoBehaviour
         }
         else if (x.gameObject.tag == "HighGravityFlip")
         {
-            changeGravityScale(HighGravity, -1);
+            SetGravityAniParameters(false, false, true);
+
+            ChangeGravityScale(HighGravity, -1);
             playerController.m_UpRight = false;
             
             playerController.GravityFlip();
             print("Gravity Changed");
         }
-        else if (x.gameObject.tag == "Health")
+
+        if (x.gameObject.tag == "Health")
         {
             LifeCounterScript.ChangeLifeImages(true, 1);
             Destroy(x.gameObject);
         }
         
-        if (x.gameObject.tag == "FallAble")
+        else if (x.gameObject.tag == "FallAble")
         {
             //Trigger Fall
             StartCoroutine(Fall(3, 6, x.gameObject));
         }
+        
         else if(x.gameObject.tag == "Bridge")
         {
             x.GetComponent<Animator>().SetTrigger("PlayerCollided");
@@ -141,7 +159,7 @@ public class PlayerFellOff : MonoBehaviour
         }
 
         //Reset position
-        else if (x.gameObject.tag == "Save Point")
+        if (x.gameObject.tag == "Save Point")
         {
             startPos = x.gameObject.transform.position;
             SaveAni.SetTrigger("SaveGame");
@@ -151,6 +169,16 @@ public class PlayerFellOff : MonoBehaviour
         if (x.gameObject.tag == "FuelStation")
         {
             movementScript.regenFuel = true;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D x)
+    {
+        //To disable jetpack fuel regeneration
+        if (x.gameObject.tag == "FuelStation")
+        {
+            movementScript.regenFuel = false;
+            print("no longer refueling");
         }
     }
 
@@ -213,20 +241,10 @@ public class PlayerFellOff : MonoBehaviour
         fadeAni2.SetTrigger("FadeOut");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    //if we need to dissable jetpack pickup
-    private void OnTriggerExit2D(Collider2D x)
-    {
-        if (x.gameObject.tag == "FuelStation")
-        {
-            movementScript.regenFuel = false;
-            print("no longer refueling");
-        }
-    }
+    }    
 
     //Conrtols gravity changes wilst using the jetpack 
-    void changeGravityScale(float gravScale, float posOrNeg)
+    void ChangeGravityScale(float gravScale, float posOrNeg)
     {
         movementScript.startGravity = gravScale * posOrNeg;
 
@@ -238,5 +256,13 @@ public class PlayerFellOff : MonoBehaviour
         {
             ridBody.gravityScale = movementScript.startGravity;
         }        
+    }
+
+    void SetGravityAniParameters(bool low, bool norm, bool high)
+    {
+
+        gravityAni.SetBool("LowGravity", low);
+        gravityAni.SetBool("NormGravity", norm);
+        gravityAni.SetBool("HighGravity", high);
     }
 }
