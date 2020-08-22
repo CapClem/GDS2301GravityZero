@@ -66,6 +66,7 @@ public class ButtonFunctions : MonoBehaviour
                 }
                 else if (gamePaused == true)
                 {
+                    AniHowToPlay.SetBool("HowToPlay", false);
                     FMODUnity.RuntimeManager.PlayOneShot("event:/Ui/MenuOpen", default);
                     AniGameplayButton.SetBool("FaderBool",false);
                     AniGameplayFader.SetBool("FaderBool", false);
