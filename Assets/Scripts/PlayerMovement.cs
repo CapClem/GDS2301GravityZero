@@ -72,6 +72,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         fuelRemaining = maxFuel;
         fuelBar.setTotalFuelLevel(maxFuel);
+        fuelBar.setTotalDashLevel(startAbilityTimer);
+
         abilityTimer = startAbilityTimer;
     }   
 
@@ -184,6 +186,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             abilityTimer -= Time.fixedDeltaTime;
+            fuelBar.SetDashLevel(abilityTimer);
         }
 
         //Dash Ability
@@ -240,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
                 ani.SetBool("UsingJetpack", true);
             }
 
-            fuelBar.SetFuelLevel(fuelRemaining);
+            fuelBar.SetFuelLevel(fuelRemaining); 
         }
 
         if (IsGrounded())
