@@ -16,6 +16,19 @@ public class ButtonFunctions : MonoBehaviour
     Animator AniGameplayFader;
     Animator AniHowToPlay;
 
+    void Awake()
+    {
+        if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "HowToPlay" && SceneManager.GetActiveScene().name != "Settings" && SceneManager.GetActiveScene().name != "Credits" && SceneManager.GetActiveScene().name != "EndScene")
+        {
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.visible = true;
+        }
+    }
+
+
     void Update()
     {
         //reload scene
@@ -48,6 +61,7 @@ public class ButtonFunctions : MonoBehaviour
                     AniGameplayButton.SetBool("FaderBool", true);
                     AniGameplayFader.SetBool("FaderBool", true);
 
+                    Cursor.visible = true;
                     StartCoroutine(pauseDelay());
                 }
                 else if (gamePaused == true)
@@ -57,8 +71,9 @@ public class ButtonFunctions : MonoBehaviour
                     AniGameplayFader.SetBool("FaderBool", false);
 
                     gamePaused = false;
-                    Time.timeScale = 1;                   
-                }   
+                    Time.timeScale = 1;
+                    Cursor.visible = false;
+                }                
             }
             else if (SceneManager.GetActiveScene().name == "MainMenu" && vidPlaying == false)
             {
@@ -137,6 +152,7 @@ public class ButtonFunctions : MonoBehaviour
         Time.timeScale = 1;
 
         AniHowToPlay.SetBool("HowToPlay", false);
+        Cursor.visible = false;
     }
     
     public void LoadMainMenu()
