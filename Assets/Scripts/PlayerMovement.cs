@@ -332,7 +332,7 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator jumpResetTime() 
     {
-        if (haveIAlreadyJumped != true)
+        //if (haveIAlreadyJumped != true)
         {
             haveIAlreadyJumped = true;
             yield return new WaitForSeconds(jumpDelayTime);
