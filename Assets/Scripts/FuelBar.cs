@@ -10,6 +10,21 @@ public class FuelBar : MonoBehaviour
     public Slider jetPackFuel;
     public Slider DashFuel;
 
+    public GameObject jetParticleEffect;
+    private ParticleSystem jetpackUI;
+    ParticleSystem.EmissionModule jetpackEmission;
+
+    void Start()
+    {
+        jetpackUI = jetParticleEffect.GetComponent<ParticleSystem>();
+        jetpackEmission = jetpackUI.emission;
+    }
+
+    void Update()
+    {
+        jetpackEmission.rateOverTimeMultiplier = Mathf.Abs((jetPackFuel.value - 100)/4);
+    }
+
     //starting fuel
     public void setTotalFuelLevel(float fuel)
     {
