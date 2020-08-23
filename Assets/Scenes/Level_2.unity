@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1808,6 +1808,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 392625349}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &392625351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3984796209700655922, guid: 395ed049a56aa044a8bf4c785fc57943,
+    type: 3}
+  m_PrefabInstance: {fileID: 392625349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &392625352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392625351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124d7aa0ab27aa446a97899769a0df14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/Collision/MetalBridge
 --- !u!1 &405390725
 GameObject:
   m_ObjectHideFlags: 0
@@ -17642,6 +17661,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1988347595}
+    - target: {fileID: 799334645, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -195.99998
+      objectReference: {fileID: 0}
     - target: {fileID: 1053522033, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
