@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     public bool regenFuel = false;
 
     //Coyote time
-    private float jumpDelayTime = 0.20f;
+    float jumpDelayTime = 1f;
     private float dashDelayTime = 0.5f;
 
     //can the player jump bool
@@ -294,7 +294,7 @@ public class PlayerMovement : MonoBehaviour
 
         float extraHeightText = 0.1f;
 
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, x, extraHeightText, playformLayerMask);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size * 0.9f, 0f, x, extraHeightText, playformLayerMask);
         Color rayColor;
         hit = raycastHit;
         if (raycastHit.collider != null)
@@ -314,9 +314,9 @@ public class PlayerMovement : MonoBehaviour
             rayColor = Color.red;
         }
 
-        Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
-        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
-        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, (boxCollider2D.bounds.extents.y + extraHeightText)*y), Vector2.right * 2 * (boxCollider2D.bounds.extents.x), rayColor);
+        Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x - extraHeightText, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
+        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x - extraHeightText, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
+        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x - extraHeightText, (boxCollider2D.bounds.extents.y + extraHeightText) *y), Vector2.right * 2 * (boxCollider2D.bounds.extents.x - extraHeightText), rayColor);
         //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
     }
