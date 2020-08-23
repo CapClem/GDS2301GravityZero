@@ -1233,7 +1233,7 @@ GameObject:
   - component: {fileID: 1286861943}
   - component: {fileID: 1286861946}
   m_Layer: 5
-  m_Name: Contributions_Button
+  m_Name: Settings_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1404,7 +1404,7 @@ GameObject:
   - component: {fileID: 1425981692}
   - component: {fileID: 1425981691}
   m_Layer: 5
-  m_Name: Contributions_Button (1)
+  m_Name: Credits_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
