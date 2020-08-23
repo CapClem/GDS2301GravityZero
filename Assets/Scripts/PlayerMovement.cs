@@ -208,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
                         myVelocity = rb.velocity;
                     }
 
-                   myVelocity += Vector2.right * dashSpeed; //DashRight
+                    myVelocity += Vector2.right * dashSpeed; //DashRight
                     StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
                 }
                 else if (contoller.m_FacingRight == false)
