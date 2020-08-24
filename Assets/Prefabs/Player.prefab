@@ -8131,14 +8131,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   contoller: {fileID: 3639213279711610132}
-  dash: {fileID: 0}
+  dash: {fileID: 3845665842947951447}
   runSpeed: 30
   boxCollider2D: {fileID: 3639213279711610134}
   propelSpeed: 12
   useJetpack: 0
   jetEffect: {fileID: 8731895570750438569}
   jumpDust: {fileID: 7131709636945735853}
-  dashSpeed: 75
   startAbilityTimer: 2
   dashEffect: {fileID: 3638467687720694093}
   fuelRemaining: 0
@@ -8163,10 +8162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 3639213279711610132}
   rb: {fileID: 3639213279711610135}
-  dashSpeed: 8
-  dashTime: 0.2
-  startDashTime: 0
-  dashForce: 30
+  dashTime: 2
+  isDashing: 1
+  dashForce: 55
 --- !u!114 &3639213279711610129
 MonoBehaviour:
   m_ObjectHideFlags: 0

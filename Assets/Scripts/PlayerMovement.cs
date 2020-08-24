@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public LayerMask playformLayerMask;
 
     //target the movement script
+    [Header("Scripts")]
     public CharacterController2D contoller;
     public Dash dash;
 
     //movement stats
+    [Header("Movement Stats!")]
     float horiontalMove = 0f;
     public float runSpeed = 40f;
 
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     //Jet Hover Variables
+    [Header("Jet Hover Variables!")]
     public float propelSpeed = 30f;
     private Rigidbody2D rb;
     public bool useJetpack = false;
@@ -35,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public RaycastHit2D hit;
 
     //Jetpack Dash Variables
+    [Header("JetPack Dash Variables!")]
     // public float dashSpeed = 50;
     private float abilityTimer;
     public float startAbilityTimer = 5f;
@@ -43,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private float origGrav;
 
     //Jetpack Fuelbar UI
+    [Header("Jetpack Fuelbar UI!")]
     public int fuelRemaining;
     public int maxFuel = 100;
     private int fuelDrain = 1;
@@ -183,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
         //Dash Cooldown Timer
         if (abilityTimer <= 0)
         {
-            dashActivatable = true;           
+            dashActivatable = true;
         }
         else
         {
@@ -194,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
         //Dash Ability
         if (dashActivatable == true)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift)) //Dash Input
+            if (Input.GetButtonDown("Dash")) //Dash Input
             {
                 FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/JetpackDash", this.gameObject);
                 dashActivatable = false; //Resetting the dash's activatability: Now the player can't use it again until it's activated by the cooldown
@@ -202,7 +207,6 @@ public class PlayerMovement : MonoBehaviour
                 dashEffect.Play();
                 dash.DashEffect();
                 StartCoroutine(dash.DashTime());
-                
                 // Vector2 myVelocity = rb.velocity;
                 //
                 // if (contoller.m_FacingRight == true)

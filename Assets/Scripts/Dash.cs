@@ -11,9 +11,9 @@ namespace AnthonyY
 
         [Header("Dash Variables")]
         public Rigidbody2D rb;
-        public float dashTime = 2;
-        public bool isDashing = true; //checking if we dashing
-        public float dashForce;
+        public float dashTime = 2f;
+        public bool isDashing; //checking if we dashing
+        public float dashForce = 55f;
         
         
      
@@ -44,8 +44,9 @@ namespace AnthonyY
         
         public IEnumerator DashTime()
         {
-            isDashing = true;
+            isDashing = false;
             yield return new WaitForSeconds(dashTime);
+            isDashing = true;
         }
     }
     
