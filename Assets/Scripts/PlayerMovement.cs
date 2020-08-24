@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AnthonyY;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     //target the movement script
     public CharacterController2D contoller;
+    public Dash dash;
 
     //movement stats
     float horiontalMove = 0f;
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public RaycastHit2D hit;
 
     //Jetpack Dash Variables
-    public float dashSpeed = 50;
+    // public float dashSpeed = 50;
     private float abilityTimer;
     public float startAbilityTimer = 5f;
     private bool dashActivatable = false;
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Coyote time
     float jumpDelayTime = 1f;
-    private float dashDelayTime = 0.5f;
+    // private float dashDelayTime = 0.5f;
 
     //can the player jump bool
     public bool canIJump = true;
@@ -198,30 +200,33 @@ public class PlayerMovement : MonoBehaviour
                 dashActivatable = false; //Resetting the dash's activatability: Now the player can't use it again until it's activated by the cooldown
                 abilityTimer = startAbilityTimer;
                 dashEffect.Play();
-                Vector2 myVelocity = rb.velocity;
-
-                if (contoller.m_FacingRight == true)
-                {
-                    if (myVelocity.x < 0)
-                    {
-                        rb.velocity = new Vector3(1, 0.5f, 0);
-                        myVelocity = rb.velocity;
-                    }
-
-                    myVelocity += Vector2.right * dashSpeed; //DashRight
-                    StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
-                }
-                else if (contoller.m_FacingRight == false)
-                {
-                    if (rb.velocity.x > 0)
-                    {
-                        rb.velocity = new Vector3(-1, 0.5f, 0);
-                        myVelocity = rb.velocity;
-                    }
-
-                    myVelocity += Vector2.left * dashSpeed; //DashLeft       
-                    StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
-                }
+                dash.DashEffect();
+                StartCoroutine(dash.DashTime());
+                
+                // Vector2 myVelocity = rb.velocity;
+                //
+                // if (contoller.m_FacingRight == true)
+                // {
+                //     if (myVelocity.x < 0)
+                //     {
+                //         rb.velocity = new Vector3(1, 0.5f, 0);
+                //         myVelocity = rb.velocity;
+                //     }
+                //
+                //     myVelocity += Vector2.right * dashSpeed; //DashRight
+                //     StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
+                // }
+                // else if (contoller.m_FacingRight == false)
+                // {
+                //     if (rb.velocity.x > 0)
+                //     {
+                //         rb.velocity = new Vector3(-1, 0.5f, 0);
+                //         myVelocity = rb.velocity;
+                //     }
+                //
+                //     myVelocity += Vector2.left * dashSpeed; //DashLeft       
+                //     StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
+                // }
             }
         }
 
