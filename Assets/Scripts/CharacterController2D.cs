@@ -36,6 +36,8 @@ public class CharacterController2D : MonoBehaviour
     Animator ani;
     bool CrouchTrigger = false;
 
+    public GameObject canvasUI;
+
     private void Awake()
     {
 
@@ -181,6 +183,10 @@ public class CharacterController2D : MonoBehaviour
             yScale.y = -1;
             transform.localScale = yScale;
 
+            Vector3 UIyScale = transform.localScale;
+            UIyScale.y = -1;
+            canvasUI.transform.localScale = UIyScale;
+
             Debug.Log("I flipped Upside Down");
         }
         else if (m_UpRight == true) // Unflips the player
@@ -191,6 +197,10 @@ public class CharacterController2D : MonoBehaviour
             Vector3 yScale = transform.localScale;
             yScale.y = 1;
             transform.localScale = yScale;
+
+            Vector3 UIyScale = transform.localScale;
+            UIyScale.y = 1;
+            canvasUI.transform.localScale = UIyScale;
 
             Debug.Log("I'm back Upright");
         }

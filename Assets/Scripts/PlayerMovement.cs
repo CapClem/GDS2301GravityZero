@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AnthonyY;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,9 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public LayerMask playformLayerMask;
 
     //target the movement script
+    [Header("Scripts")]
     public CharacterController2D contoller;
+    public Dash dash;
 
     //movement stats
+    [Header("Movement Stats!")]
     float horiontalMove = 0f;
     public float runSpeed = 40f;
 
@@ -24,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     //Jet Hover Variables
+    [Header("Jet Hover Variables!")]
     public float propelSpeed = 30f;
     private Rigidbody2D rb;
     public bool useJetpack = false;
@@ -33,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
     public RaycastHit2D hit;
 
     //Jetpack Dash Variables
-    public float dashSpeed = 50;
+    [Header("JetPack Dash Variables!")]
+    // public float dashSpeed = 50;
     private float abilityTimer;
     public float startAbilityTimer = 5f;
     private bool dashActivatable = false;
@@ -41,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private float origGrav;
 
     //Jetpack Fuelbar UI
+    [Header("Jetpack Fuelbar UI!")]
     public int fuelRemaining;
     public int maxFuel = 100;
     private int fuelDrain = 1;
@@ -51,8 +58,8 @@ public class PlayerMovement : MonoBehaviour
     public bool regenFuel = false;
 
     //Coyote time
-    private float jumpDelayTime = 0.20f;
-    private float dashDelayTime = 0.5f;
+    float jumpDelayTime = 1f;
+    // private float dashDelayTime = 0.5f;
 
     //can the player jump bool
     public bool canIJump = true;
@@ -181,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
         //Dash Cooldown Timer
         if (abilityTimer <= 0)
         {
-            dashActivatable = true;           
+            dashActivatable = true;
         }
         else
         {
@@ -192,36 +199,38 @@ public class PlayerMovement : MonoBehaviour
         //Dash Ability
         if (dashActivatable == true)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift)) //Dash Input
+            if (Input.GetButtonDown("Dash")) //Dash Input
             {
                 FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/JetpackDash", this.gameObject);
                 dashActivatable = false; //Resetting the dash's activatability: Now the player can't use it again until it's activated by the cooldown
                 abilityTimer = startAbilityTimer;
                 dashEffect.Play();
-                Vector2 myVelocity = rb.velocity;
-
-                if (contoller.m_FacingRight == true)
-                {
-                    if (myVelocity.x < 0)
-                    {
-                        rb.velocity = new Vector3(1, 0.5f, 0);
-                        myVelocity = rb.velocity;
-                    }
-
-                   myVelocity += Vector2.right * dashSpeed; //DashRight
-                    StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
-                }
-                else if (contoller.m_FacingRight == false)
-                {
-                    if (rb.velocity.x > 0)
-                    {
-                        rb.velocity = new Vector3(-1, 0.5f, 0);
-                        myVelocity = rb.velocity;
-                    }
-
-                    myVelocity += Vector2.left * dashSpeed; //DashLeft       
-                    StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
-                }
+                dash.DashEffect();
+                StartCoroutine(dash.DashTime());
+                // Vector2 myVelocity = rb.velocity;
+                //
+                // if (contoller.m_FacingRight == true)
+                // {
+                //     if (myVelocity.x < 0)
+                //     {
+                //         rb.velocity = new Vector3(1, 0.5f, 0);
+                //         myVelocity = rb.velocity;
+                //     }
+                //
+                //     myVelocity += Vector2.right * dashSpeed; //DashRight
+                //     StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
+                // }
+                // else if (contoller.m_FacingRight == false)
+                // {
+                //     if (rb.velocity.x > 0)
+                //     {
+                //         rb.velocity = new Vector3(-1, 0.5f, 0);
+                //         myVelocity = rb.velocity;
+                //     }
+                //
+                //     myVelocity += Vector2.left * dashSpeed; //DashLeft       
+                //     StartCoroutine(DashCoyoteTime(dashDelayTime, myVelocity));
+                // }
             }
         }
 
@@ -294,7 +303,7 @@ public class PlayerMovement : MonoBehaviour
 
         float extraHeightText = 0.1f;
 
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, x, extraHeightText, playformLayerMask);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size * 0.9f, 0f, x, extraHeightText, playformLayerMask);
         Color rayColor;
         hit = raycastHit;
         if (raycastHit.collider != null)
@@ -314,9 +323,9 @@ public class PlayerMovement : MonoBehaviour
             rayColor = Color.red;
         }
 
-        Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
-        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
-        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, (boxCollider2D.bounds.extents.y + extraHeightText)*y), Vector2.right * 2 * (boxCollider2D.bounds.extents.x), rayColor);
+        Debug.DrawRay(boxCollider2D.bounds.center + new Vector3(boxCollider2D.bounds.extents.x - extraHeightText, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
+        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x - extraHeightText, 0), x * (boxCollider2D.bounds.extents.y + extraHeightText), rayColor);
+        Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x - extraHeightText, (boxCollider2D.bounds.extents.y + extraHeightText) *y), Vector2.right * 2 * (boxCollider2D.bounds.extents.x - extraHeightText), rayColor);
         //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
     }
