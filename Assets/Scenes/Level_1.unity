@@ -26884,7 +26884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.31799316, y: -0.117004395}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1805559307
@@ -27978,6 +27978,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.25761136
       objectReference: {fileID: 0}
+    - target: {fileID: 2985684312996924900, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9662487
+      objectReference: {fileID: 0}
     - target: {fileID: 3639213278813570530, guid: da059ee5e0914da49a454619562add14,
         type: 3}
       propertyPath: jetParticleEffect
@@ -28108,6 +28113,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.25431448
       objectReference: {fileID: 0}
+    - target: {fileID: 4892457535604155739, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96712154
+      objectReference: {fileID: 0}
     - target: {fileID: 4935853260781750882, guid: da059ee5e0914da49a454619562add14,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -28133,6 +28143,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.118507594
       objectReference: {fileID: 0}
+    - target: {fileID: 6668771989970660979, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9929531
+      objectReference: {fileID: 0}
     - target: {fileID: 7113025129840576936, guid: da059ee5e0914da49a454619562add14,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -28152,10 +28167,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1880237058}
     m_Modifications:
-    - target: {fileID: 20133968, guid: 54bb4926fc5ba4240994e85b235b844b, type: 3}
-      propertyPath: eventPath
-      value: event:/Collision/Box
-      objectReference: {fileID: 0}
     - target: {fileID: 4652297982215915333, guid: 54bb4926fc5ba4240994e85b235b844b,
         type: 3}
       propertyPath: m_Name
@@ -28164,12 +28175,12 @@ PrefabInstance:
     - target: {fileID: 4652297982215915334, guid: 54bb4926fc5ba4240994e85b235b844b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.46
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 4652297982215915334, guid: 54bb4926fc5ba4240994e85b235b844b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8423514
+      value: -2.38
       objectReference: {fileID: 0}
     - target: {fileID: 4652297982215915334, guid: 54bb4926fc5ba4240994e85b235b844b,
         type: 3}
