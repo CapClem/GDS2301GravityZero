@@ -4350,6 +4350,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6636992393518836939, guid: 015bdc5f464e1df409ebdbc0b5450da3,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: -0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 015bdc5f464e1df409ebdbc0b5450da3, type: 3}
 --- !u!4 &1035552992 stripped
@@ -13649,6 +13654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: HighGravityFlip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570911313412197722, guid: fbc4d79173eb6d54b9f54bb4df292473,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: -0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbc4d79173eb6d54b9f54bb4df292473, type: 3}
@@ -32830,6 +32840,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: HighGravityFlip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570911313412197722, guid: fbc4d79173eb6d54b9f54bb4df292473,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: -0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbc4d79173eb6d54b9f54bb4df292473, type: 3}

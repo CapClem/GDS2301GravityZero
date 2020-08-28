@@ -121,6 +121,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GravParticleLow
       objectReference: {fileID: 0}
+    - target: {fileID: 120876964111610648, guid: 0584a69e8b57a604da3dbeb88a26e369,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 120876964111610648, guid: 0584a69e8b57a604da3dbeb88a26e369,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 120876964111610649, guid: 0584a69e8b57a604da3dbeb88a26e369,
         type: 3}
       propertyPath: m_LocalPosition.x

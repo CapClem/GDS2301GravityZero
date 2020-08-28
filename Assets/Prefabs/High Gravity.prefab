@@ -140,6 +140,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GravParticleHigh
       objectReference: {fileID: 0}
+    - target: {fileID: 273591754284495030, guid: e82d1ba1b9638c64d89b3f7d6292137e,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e82d1ba1b9638c64d89b3f7d6292137e, type: 3}
 --- !u!4 &5570911313412197701 stripped

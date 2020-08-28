@@ -191,6 +191,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3981572701736964991, guid: ce6dd050efed54c499ff0690fcccefea,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce6dd050efed54c499ff0690fcccefea, type: 3}
 --- !u!4 &6636992393518836936 stripped
