@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     public bool ShouldILandMyJump = false;
     bool checkLandJump = false;
 
-    float landJumpTimer = 0.5f;
+    float landJumpTimer = 0.2f;
     
 
     // Start is called before the first frame update
