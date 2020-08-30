@@ -33082,6 +33082,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -500
       objectReference: {fileID: 0}
+    - target: {fileID: 799334645, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -196.00003
+      objectReference: {fileID: 0}
     - target: {fileID: 1053522033, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -33110,6 +33114,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1421961041}
+    - target: {fileID: 1495768923, guid: da059ee5e0914da49a454619562add14, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2078121886, guid: da059ee5e0914da49a454619562add14, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -33152,6 +33160,11 @@ PrefabInstance:
       value: 0.25761136
       objectReference: {fileID: 0}
     - target: {fileID: 2985684312996924900, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9662487
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639213278813570530, guid: da059ee5e0914da49a454619562add14,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9662487
@@ -33310,6 +33323,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.118507594
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668771989970660979, guid: da059ee5e0914da49a454619562add14,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9929531
       objectReference: {fileID: 0}
     - target: {fileID: 7113025129840576936, guid: da059ee5e0914da49a454619562add14,
         type: 3}

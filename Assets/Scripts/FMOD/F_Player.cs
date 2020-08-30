@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using UnityEngine.UI;
+using System.Diagnostics.Tracing;
+using System.Security.AccessControl;
 
 public class F_Player : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class F_Player : MonoBehaviour
 
     private bool jetpackSoundPlayed;
     private bool rechargeActiv;
+    private bool dashRechargePlayed = true;
 
     EventInstance jetpackRe;
     EventInstance jetPack;
