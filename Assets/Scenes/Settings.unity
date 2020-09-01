@@ -2346,7 +2346,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1648800927}
-  - component: {fileID: 1648800926}
   - component: {fileID: 1648800925}
   - component: {fileID: 1648800924}
   m_Layer: 0
@@ -2389,19 +2388,6 @@ MonoBehaviour:
   - Ui
   CollisionTag: 
   PreloadSamples: 0
---- !u!114 &1648800926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1648800923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 780060a6731665641ae8f5a722de670b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animaticStarted: 0
 --- !u!4 &1648800927
 Transform:
   m_ObjectHideFlags: 0
