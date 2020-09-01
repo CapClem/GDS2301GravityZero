@@ -7,17 +7,23 @@ using UnityEditor;
 
 public class F_MainMenu : MonoBehaviour
 {
-    public EventInstance menuMusic;
+    public static EventInstance menuMusic;
     public static EventInstance animaticMusic;
     public bool animaticStarted;
+
+    public static bool mainMenuMusicStarted;
     void Start()
     {
         F_Music.musicStarted = false;
         animaticStarted = false;
 
-        menuMusic = RuntimeManager.CreateInstance("event:/Music/MainMenu");
-        menuMusic.start();
-        menuMusic.release();    
+        if (mainMenuMusicStarted == false)
+        {
+            menuMusic = RuntimeManager.CreateInstance("event:/Music/MainMenu");
+            menuMusic.start();
+            menuMusic.release();
+            mainMenuMusicStarted = true;
+        }      
     }
 
     public void PlayAnimatic()
