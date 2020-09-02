@@ -2472,7 +2472,6 @@ GameObject:
   m_Component:
   - component: {fileID: 654167791}
   - component: {fileID: 654167794}
-  - component: {fileID: 654167792}
   m_Layer: 0
   m_Name: AudioTriggerFade
   m_TagString: Untagged
@@ -2494,18 +2493,6 @@ Transform:
   m_Father: {fileID: 437457747}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &654167792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654167790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3457f483a7fc4304a98fe92360fb4574, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &654167794
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24744,6 +24731,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1518408709}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1547702621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1553011715620132623, guid: 65f33a8f2f47b3f40b2f27983530c726,
+    type: 3}
+  m_PrefabInstance: {fileID: 1292217146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1547702622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547702621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3457f483a7fc4304a98fe92360fb4574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1557732343
 GameObject:
   m_ObjectHideFlags: 0

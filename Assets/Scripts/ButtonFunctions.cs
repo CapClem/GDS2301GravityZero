@@ -82,6 +82,7 @@ public class ButtonFunctions : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name == "EndScene")
             {
+                IntroStarter.outroAnimatic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 LoadCredits();
             }
             else

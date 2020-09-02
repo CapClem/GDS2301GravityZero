@@ -10,6 +10,7 @@ public class F_Outro : MonoBehaviour
     void Start()
     {
         F_Music.mainTheme.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        F_Music.mainTheme.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         outro = RuntimeManager.CreateInstance("event:/Music/OutroAnimatic");
         outro.start();
         outro.release();

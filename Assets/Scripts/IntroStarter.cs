@@ -10,9 +10,9 @@ public class IntroStarter : MonoBehaviour
     Animator ani;
     public float waitTime;
     public Canvas canvas;
-
-    EventInstance outro;
-        
+    private bool outroAnimaticStarted;
+    public static EventInstance outroAnimatic;
+     
     // Start is called before the first frame update
     void Start()
     {
@@ -59,9 +59,10 @@ public class IntroStarter : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         PlayVideo();
-        outro = RuntimeManager.CreateInstance("event:/Music/OutroAnimatic");
-        outro.start();
-        outro.release();
+
+        outroAnimatic = RuntimeManager.CreateInstance("event:/Music/OutroAnimatic");
+        outroAnimatic.start();
+        outroAnimatic.release();   
     }
 
 }

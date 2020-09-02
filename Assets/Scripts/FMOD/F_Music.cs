@@ -11,7 +11,6 @@ public class F_Music : MonoBehaviour
 
     public static bool musicStarted;
 
-  
 
     [SerializeField]
     private float parameterValue;
@@ -25,11 +24,6 @@ public class F_Music : MonoBehaviour
             mainTheme.release();
             musicStarted = true;
         }   
-    }
-
-    private void Update()
-    {
-        Debug.Log(musicStarted);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
