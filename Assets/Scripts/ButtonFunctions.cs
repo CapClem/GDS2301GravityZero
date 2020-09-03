@@ -18,7 +18,7 @@ public class ButtonFunctions : MonoBehaviour
 
     void Awake()
     {
-        if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "HowToPlay" && SceneManager.GetActiveScene().name != "Settings" && SceneManager.GetActiveScene().name != "Credits" && SceneManager.GetActiveScene().name != "EndScene")
+        if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "HowToPlay" && SceneManager.GetActiveScene().name != "Settings" && SceneManager.GetActiveScene().name != "Credits")
         {
             Cursor.visible = false;
         }
@@ -94,6 +94,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void StartIntro()
     {
+        Cursor.visible = false;
         buttonsAni = buttons.GetComponent<Animator>();
         buttonsAni.SetTrigger("LoadButtonsOut");
         Animator y = this.GetComponent<Animator>();
